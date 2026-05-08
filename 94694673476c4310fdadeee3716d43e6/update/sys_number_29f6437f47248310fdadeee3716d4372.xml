@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_number">
+    <sys_number action="INSERT_OR_UPDATE">
+        <category display_value="" name="x_2048400_churn_1_risk_score_history">x_2048400_churn_1_risk_score_history</category>
+        <maximum_digits>4</maximum_digits>
+        <number>1000</number>
+        <prefix>RIS</prefix>
+        <sys_class_name>sys_number</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:50:10</sys_created_on>
+        <sys_id>29f6437f47248310fdadeee3716d4372</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RIS</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_number_29f6437f47248310fdadeee3716d4372</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:50:10</sys_updated_on>
+    </sys_number>
+</record_update>

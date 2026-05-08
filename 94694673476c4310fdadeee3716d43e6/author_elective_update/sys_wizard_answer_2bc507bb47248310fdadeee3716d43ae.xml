@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="DELETE">
+        <active>true</active>
+        <answer>Retention Intervention table</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Retention Intervention table</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Task" name="Task">49fb6e42187232108bb255f46a373ade</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:45:07</sys_created_on>
+        <sys_id>2bc507bb47248310fdadeee3716d43ae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retention Intervention table</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_wizard_answer_2bc507bb47248310fdadeee3716d43ae</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:45:07</sys_updated_on>
+        <table/>
+        <target_url>x_2048400_churn_1_retention_intervention_table.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</application>
+        <file_path/>
+        <instance_id>d618db98fb70ea140c92f633beefdca9</instance_id>
+        <instance_name>dev317514</instance_name>
+        <name>sys_wizard_answer_2bc507bb47248310fdadeee3716d43ae</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer"><sys_wizard_answer action="INSERT_OR_UPDATE"><active>true</active><answer>Retention Intervention table</answer><button_label/><dependent_value/><element/><name>Retention Intervention table</name><next_question/><order>100</order><payload_name/><question display_value="Task" name="Task">49fb6e42187232108bb255f46a373ade</question><roles/><script/><sys_class_name>sys_wizard_answer</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-06 15:45:07</sys_created_on><sys_id>2bc507bb47248310fdadeee3716d43ae</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Retention Intervention table</sys_name><sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package><sys_policy/><sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope><sys_update_name>sys_wizard_answer_2bc507bb47248310fdadeee3716d43ae</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-06 15:45:07</sys_updated_on><table/><target_url>x_2048400_churn_1_retention_intervention_table.do</target_url><type>1</type></sys_wizard_answer></record_update>]]></payload>
+        <payload_hash>1707596064</payload_hash>
+        <record_name>Retention Intervention table</record_name>
+        <reverted_from/>
+        <source/>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:52:00</sys_created_on>
+        <sys_id>5c678bbf47248310fdadeee3716d43be</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dfdfd2b2c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:52:00</sys_updated_on>
+        <type>Answer</type>
+        <update_guid>1c678bbfb524831032b1a8076c2f17be</update_guid>
+        <update_guid_history>1c678bbfb524831032b1a8076c2f17be:1707596064</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:52:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_wizard_answer">sys_wizard_answer</sys_db_object>
+        <sys_id>c5cce607411641ba9b8fe3220859dcf9</sys_id>
+        <sys_metadata>2bc507bb47248310fdadeee3716d43ae</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retention Intervention table</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_parent display_value="Task">49fb6e42187232108bb255f46a373ade</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_scope_delete display_value="">013b9702a59142e0890f71dd3722e400</sys_scope_delete>
+        <sys_update_name>sys_wizard_answer_2bc507bb47248310fdadeee3716d43ae</sys_update_name>
+        <sys_update_version display_value="sys_wizard_answer_2bc507bb47248310fdadeee3716d43ae">5c678bbf47248310fdadeee3716d43be</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:52:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

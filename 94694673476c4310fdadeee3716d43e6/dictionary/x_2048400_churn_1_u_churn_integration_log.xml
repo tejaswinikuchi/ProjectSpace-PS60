@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="9cc5877b47248310fdadeee3716d434d" extends="task" label="Integration Log" max_length="40" name="x_2048400_churn_1_u_churn_integration_log" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Error Message" max_length="40" name="u_error_message" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Integration Name" max_length="100" name="u_integration_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Response Payload" max_length="4000" name="u_response_payload" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="API Endpoint" max_length="255" name="u_api_endpoint" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Log Time" max_length="40" name="u_log_time" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Request Payload" max_length="4000" name="u_request_payload" type="string"/>
+        <element attributes="encode_utf8=false" label="Triggered By" max_length="32" name="u_triggered_by" reference="cmdb_ci_appl_dot_net" type="reference"/>
+        <element label="Execution Time" max_length="15" name="u_execution_time" type="decimal"/>
+        <element label="Status Code" max_length="40" name="u_status_code" type="integer"/>
+    </element>
+</database>

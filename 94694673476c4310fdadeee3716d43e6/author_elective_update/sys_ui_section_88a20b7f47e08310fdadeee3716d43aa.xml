@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="88a20b7f47e08310fdadeee3716d43aa" sys_domain="global" table="x_2048400_churn_1_risk_score_history" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 15:31:14</sys_created_on>
+            <sys_id>08a243b347248310fdadeee3716d436c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_2048400_churn_1_risk_score_history" sys_domain="global" view="Default view">88a20b7f47e08310fdadeee3716d43aa</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 15:31:14</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>x_2048400_churn_1_risk_score_history</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 15:31:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>88a20b7f47e08310fdadeee3716d43aa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_2048400_churn_1_risk_score_history</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+            <sys_update_name>sys_ui_section_88a20b7f47e08310fdadeee3716d43aa</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 15:31:14</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</application>
+        <file_path/>
+        <instance_id>d618db98fb70ea140c92f633beefdca9</instance_id>
+        <instance_name>dev317514</instance_name>
+        <name>sys_ui_section_88a20b7f47e08310fdadeee3716d43aa</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="88a20b7f47e08310fdadeee3716d43aa" sys_domain="global" table="x_2048400_churn_1_risk_score_history" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>number</element><position>0</position><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-06 15:31:14</sys_created_on><sys_id>08a243b347248310fdadeee3716d436c</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_2048400_churn_1_risk_score_history" sys_domain="global" view="Default view">88a20b7f47e08310fdadeee3716d43aa</sys_ui_section><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-06 15:31:14</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>x_2048400_churn_1_risk_score_history</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-06 15:31:14</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>88a20b7f47e08310fdadeee3716d43aa</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_2048400_churn_1_risk_score_history</sys_name><sys_overrides/><sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package><sys_policy/><sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope><sys_update_name>sys_ui_section_88a20b7f47e08310fdadeee3716d43aa</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-06 15:31:14</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>-159160667</payload_hash>
+        <record_name>Risk Score History</record_name>
+        <reverted_from/>
+        <source>d8694673476c4310fdadeee3716d43ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:31:14</sys_created_on>
+        <sys_id>04a243b347248310fdadeee3716d4370</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dfdea27f60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:31:14</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>44a243b30824831080269e50675e976f</update_guid>
+        <update_guid_history>44a243b30824831080269e50675e976f:-159160667,c8a243b354248310891c9b00de3e7a6b:-1491261538</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:43:07</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>35d0e44b45ac4a84a23a64bb7521d590</sys_id>
+        <sys_metadata>88a20b7f47e08310fdadeee3716d43aa</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_risk_score_history</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_parent display_value="">079203b347248310fdadeee3716d4311</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_scope_delete display_value="">013b9702a59142e0890f71dd3722e400</sys_scope_delete>
+        <sys_update_name>sys_ui_section_88a20b7f47e08310fdadeee3716d43aa</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_88a20b7f47e08310fdadeee3716d43aa">04a243b347248310fdadeee3716d4370</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:43:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

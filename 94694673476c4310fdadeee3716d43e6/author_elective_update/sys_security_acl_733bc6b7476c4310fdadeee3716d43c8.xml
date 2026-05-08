@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <applies_to/>
+        <condition/>
+        <controlled_by_refs/>
+        <decision_type>allow</decision_type>
+        <description/>
+        <local_or_existing>Existing</local_or_existing>
+        <name>x_2048400_churn_1_risk_score_history</name>
+        <operation display_value="delete">delete</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 11:29:17</sys_created_on>
+        <sys_id>733bc6b7476c4310fdadeee3716d43c8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_risk_score_history</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_security_acl_733bc6b7476c4310fdadeee3716d43c8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 11:29:17</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</application>
+        <file_path/>
+        <instance_id>d618db98fb70ea140c92f633beefdca9</instance_id>
+        <instance_name>dev317514</instance_name>
+        <name>sys_security_acl_733bc6b7476c4310fdadeee3716d43c8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><controlled_by_refs/><decision_type>allow</decision_type><description/><local_or_existing>Existing</local_or_existing><name>x_2048400_churn_1_risk_score_history</name><operation display_value="delete">delete</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-06 11:29:17</sys_created_on><sys_id>733bc6b7476c4310fdadeee3716d43c8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_2048400_churn_1_risk_score_history</sys_name><sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package><sys_policy/><sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope><sys_update_name>sys_security_acl_733bc6b7476c4310fdadeee3716d43c8</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-06 11:29:17</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>-713464017</payload_hash>
+        <record_name>x_2048400_churn_1_risk_score_history</record_name>
+        <reverted_from/>
+        <source>d8694673476c4310fdadeee3716d43ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 11:29:17</sys_created_on>
+        <sys_id>f33bc6b7476c4310fdadeee3716d43d9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dfd0ca3b00000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 11:29:17</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>fb3bc6b7146c43102fc9dc2b826843cb</update_guid>
+        <update_guid_history>fb3bc6b7146c43102fc9dc2b826843cb:-713464017</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:26:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>25fded86fcc54988a1a21162bf87c991</sys_id>
+        <sys_metadata>733bc6b7476c4310fdadeee3716d43c8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_risk_score_history</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_parent display_value="">723b06b7476c4310fdadeee3716d43a1</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_scope_delete display_value="">013b9702a59142e0890f71dd3722e400</sys_scope_delete>
+        <sys_update_name>sys_security_acl_733bc6b7476c4310fdadeee3716d43c8</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_733bc6b7476c4310fdadeee3716d43c8">f33bc6b7476c4310fdadeee3716d43d9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:26:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

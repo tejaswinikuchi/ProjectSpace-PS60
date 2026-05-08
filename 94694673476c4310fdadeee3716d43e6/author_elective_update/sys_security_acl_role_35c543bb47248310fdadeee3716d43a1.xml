@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:45:01</sys_created_on>
+        <sys_id>35c543bb47248310fdadeee3716d43a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_customer_profile.x_2048400_churn_1.user</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_security_acl display_value="x_2048400_churn_1_customer_profile">79c543bb47248310fdadeee3716d439b</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_35c543bb47248310fdadeee3716d43a1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:45:01</sys_updated_on>
+        <sys_user_role display_value="x_2048400_churn_1.user" name="x_2048400_churn_1.user">24698673476c4310fdadeee3716d431c</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</application>
+        <file_path/>
+        <instance_id>d618db98fb70ea140c92f633beefdca9</instance_id>
+        <instance_name>dev317514</instance_name>
+        <name>sys_security_acl_role_35c543bb47248310fdadeee3716d43a1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-06 15:45:01</sys_created_on><sys_id>35c543bb47248310fdadeee3716d43a1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_2048400_churn_1_customer_profile.x_2048400_churn_1.user</sys_name><sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package><sys_policy/><sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope><sys_security_acl display_value="x_2048400_churn_1_customer_profile">79c543bb47248310fdadeee3716d439b</sys_security_acl><sys_update_name>sys_security_acl_role_35c543bb47248310fdadeee3716d43a1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-06 15:45:01</sys_updated_on><sys_user_role display_value="x_2048400_churn_1.user" name="x_2048400_churn_1.user">24698673476c4310fdadeee3716d431c</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>-2065391931</payload_hash>
+        <record_name>x_2048400_churn_1_customer_profile.x_2048400_churn_1.user</record_name>
+        <reverted_from/>
+        <source>d8694673476c4310fdadeee3716d43ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:45:01</sys_created_on>
+        <sys_id>b9c583bb47248310fdadeee3716d4316</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dfdf6c5780000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:45:01</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>79c583bb8c2483103b4b85948c716c15</update_guid>
+        <update_guid_history>79c583bb8c2483103b4b85948c716c15:-2065391931</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_2048400_churn_1_customer_profile.x_2048400_churn_1.user">328847b347648310fdadeee3716d437e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:57:05</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>1848de40658342238402c20146cf77c1</sys_id>
+        <sys_metadata>35c543bb47248310fdadeee3716d43a1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_customer_profile.x_2048400_churn_1.user</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_parent display_value="">79c543bb47248310fdadeee3716d439b</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_scope_delete display_value="">013b9702a59142e0890f71dd3722e400</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_35c543bb47248310fdadeee3716d43a1</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_35c543bb47248310fdadeee3716d43a1">b9c583bb47248310fdadeee3716d4316</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:57:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="9df6037f47248310fdadeee3716d43f4" extends="task" label="Risk Score History" max_length="40" name="x_2048400_churn_1_risk_score_history" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="AI Summary" max_length="4000" name="u_string_1" type="string"/>
+        <element label="Risk Score" max_length="40" name="u_integer_4" type="integer"/>
+        <element attributes="encode_utf8=false" label="Customer" max_length="32" name="u_reference_8" reference="x_2048400_churn_1_customer_profile_table" type="reference"/>
+        <element label="NPS Change" max_length="40" name="u_integer_13" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Risk Category" max_length="40" name="u_choice_5" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="Choice 2"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="Choice 1"/>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="Choice 3"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Recommended Action" max_length="255" name="u_string_2" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Scored On" max_length="40" name="u_glide_date_time_3" type="glide_date_time"/>
+        <element label="Login Decline Percentage" max_length="15" name="u_decimal_12" type="decimal"/>
+        <element label="Pridiction Confidence" max_length="15" name="u_decimal_11" type="decimal"/>
+        <element label="Prediction Confidence" max_length="15" name="u_decimal_7" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" label="Primary Risk Factory" max_length="255" name="u_string_9" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Model Version" max_length="50" name="u_string_6" type="string"/>
+    </element>
+</database>

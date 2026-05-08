@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Churn Analyst</description>
+        <elevated_privilege>false</elevated_privilege>
+        <federated_id>SJybzAtNrZaIlU02f9OE8vBTA6hjwUAPqSIA+CyoDuM=</federated_id>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_2048400_churn_1.churn analyst</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>churn analyst</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:44:59</sys_created_on>
+        <sys_id>a1c54b7b47248310fdadeee3716d438b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1.churn analyst</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_user_role_a1c54b7b47248310fdadeee3716d438b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:44:59</sys_updated_on>
+    </sys_user_role>
+</record_update>

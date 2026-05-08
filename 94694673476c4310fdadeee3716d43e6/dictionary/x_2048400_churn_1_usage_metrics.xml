@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="6d188b3347648310fdadeee3716d43ed" extends="task" label="Usage Metrics" max_length="40" name="x_2048400_churn_1_usage_metrics" type="collection">
+        <element label="Feature Used" max_length="40" name="u_integer_5" type="integer"/>
+        <element label="Ticket Severity Avg" max_length="15" name="u_decimal_10" type="decimal"/>
+        <element label="Data Exported" max_length="40" name="u_boolean_8" type="boolean"/>
+        <element attributes="encode_utf8=false" label="Customer" max_length="32" name="customer" reference="cmdb_ci_appl_dot_net" type="reference"/>
+        <element label="Session Duration Avg" max_length="15" name="u_decimal_7" type="decimal"/>
+        <element attributes="encode_utf8=false" label="Customer" max_length="32" name="u_reference_2" reference="cmdb_ci_appl_dot_net" type="reference"/>
+        <element label="Login Last 30days" max_length="40" name="u_integer_4" type="integer"/>
+        <element label="Support Tickets 30days" max_length="40" name="u_integer_9" type="integer"/>
+        <element label="API Calls" max_length="40" name="u_integer_6" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Snapshot Date" max_length="40" name="u_glide_date_3" type="glide_date"/>
+    </element>
+</database>

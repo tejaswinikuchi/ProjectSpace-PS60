@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:50:14</sys_created_on>
+        <sys_id>52f6077f47248310fdadeee3716d4396</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_risk_score_history.x_2048400_churn_1.account manager</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_security_acl display_value="x_2048400_churn_1_risk_score_history">56f6077f47248310fdadeee3716d4390</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_52f6077f47248310fdadeee3716d4396</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:50:14</sys_updated_on>
+        <sys_user_role display_value="x_2048400_churn_1.account manager" name="x_2048400_churn_1.account manager">69c58b7b47248310fdadeee3716d43bf</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="x_2048400_churn_1_customer_profile_table" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Customer Profile Table - Default view" name="x_2048400_churn_1_customer_profile_table" related_list="NULL" sys_domain="global" view="Default view">81c65f7347e48310fdadeee3716d43ef</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>x_2048400_churn_1_usage_metrics.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 16:59:14</sys_created_on>
+            <sys_id>81c6df7347e48310fdadeee3716d4359</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 16:59:14</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Customer Profile Table - Default view" name="x_2048400_churn_1_customer_profile_table" related_list="NULL" sys_domain="global" view="Default view">81c65f7347e48310fdadeee3716d43ef</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>x_2048400_churn_1_risk_score_history.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 16:59:14</sys_created_on>
+            <sys_id>09c6df7347e48310fdadeee3716d4359</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 16:59:14</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Customer Profile Table - Default view" name="x_2048400_churn_1_customer_profile_table" related_list="NULL" sys_domain="global" view="Default view">81c65f7347e48310fdadeee3716d43ef</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>x_2048400_churn_1_retention_intervention_table.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 16:59:14</sys_created_on>
+            <sys_id>8dc6df7347e48310fdadeee3716d4359</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 16:59:14</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Customer Profile Table - Default view" name="x_2048400_churn_1_customer_profile_table" related_list="NULL" sys_domain="global" view="Default view">81c65f7347e48310fdadeee3716d43ef</list_id>
+            <order_by/>
+            <position>3</position>
+            <related_list>x_2048400_churn_1_ai_recommendation.parent</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 16:59:14</sys_created_on>
+            <sys_id>05c6df7347e48310fdadeee3716d435a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 16:59:14</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Customer Profile Table - Default view</calculated_name>
+            <filter/>
+            <name>x_2048400_churn_1_customer_profile_table</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 16:59:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>81c65f7347e48310fdadeee3716d43ef</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Customer Profile Table - Default view</sys_name>
+            <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+            <sys_update_name>sys_ui_related_x_2048400_churn_1_customer_profile_table_null</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 16:59:14</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

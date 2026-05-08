@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="1618cb3347648310fdadeee3716d43ba" extends="task" label="Retention Intervention table" max_length="40" name="x_2048400_churn_1_retention_intervention_table" type="collection">
+        <element label="Customer" max_length="32" name="customer" reference="x_2048400_churn_1_customer_profile_table" type="reference"/>
+        <element label="Action Date" max_length="40" name="action_date" type="glide_date_time"/>
+        <element choice="1" label="Intervention Type" max_length="40" name="intervention_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Training" sequence="4" value="training"/>
+                <element inactive_on_update="false" label="Email" sequence="0" value="email"/>
+                <element inactive_on_update="false" label="Discount offer" sequence="3" value="discount_offer"/>
+                <element inactive_on_update="false" label="Demo" sequence="2" value="demo"/>
+                <element inactive_on_update="false" label="Call" sequence="1" value="call"/>
+                <element inactive_on_update="false" label="Other" sequence="5" value="other"/>
+            </choice>
+        </element>
+        <element label="Risk Score After" max_length="40" name="risk_score_after" type="integer"/>
+        <element choice="1" label="Outcome" max_length="40" name="outcome" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="Customer engaged" sequence="1" value="customer_engaged"/>
+                <element inactive_on_update="false" label="Churned" sequence="4" value="churned"/>
+                <element inactive_on_update="false" label="Churn prevented" sequence="3" value="churn_prevented"/>
+                <element inactive_on_update="false" label="Offer Accepted" sequence="2" value="offer_accepted"/>
+            </choice>
+        </element>
+        <element label="Ai Recommendation Used" max_length="40" name="ai_recommendation_used" type="boolean"/>
+        <element label="Initiate By" max_length="32" name="initiate_by" reference="sys_user" type="reference"/>
+        <element label="Notes" max_length="40" name="notes" type="string"/>
+        <element label="Risk Score Before" max_length="40" name="risk_score_before" type="integer"/>
+    </element>
+</database>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="b1b9837747648310fdadeee3716d4371" extends="task" label="Customer Profile Table" max_length="40" name="x_2048400_churn_1_customer_profile_table" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Customer ID" max_length="50" name="u_customer_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Risk Category" max_length="40" name="risk_category" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Contract Start" max_length="40" name="contract_start" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Contract End" max_length="40" name="contract_end" type="glide_date"/>
+        <element label="Open Tickets" max_length="40" name="open_tickets" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Scored" max_length="40" name="last_scored" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="AI Risk Explanation" max_length="4000" name="ai_risk_explanation" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Customer ID" max_length="40" name="customer_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Company Name" max_length="100" name="company_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Login" max_length="40" name="last_login" type="glide_date_time"/>
+        <element label="NPS Score" max_length="40" name="nps_score" type="integer"/>
+        <element label="ARR" max_length="15" name="arr" type="decimal"/>
+        <element label="Churn Risk Score" max_length="40" name="churn_risk_score" type="integer"/>
+        <element attributes="encode_utf8=false" label="Account Manager" max_length="32" name="account_manager" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Subscription Tier" max_length="40" name="subscription_tier" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Enterprise" sequence="2" value="enterprise"/>
+                <element inactive_on_update="false" label="Professional" sequence="1" value="professional"/>
+                <element inactive_on_update="false" label="Starter" sequence="0" value="starter"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Company Name" max_length="200" name="u_company_name" type="string"/>
+    </element>
+</database>
