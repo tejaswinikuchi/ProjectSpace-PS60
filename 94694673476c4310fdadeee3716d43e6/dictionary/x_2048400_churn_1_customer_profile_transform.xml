@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="8432a1e847b4c710fdadeee3716d4366" extends="sys_import_set_row" label="Customer Profile Transform" max_length="40" name="x_2048400_churn_1_customer_profile_transform" type="collection">
+        <element attributes="import_attribute_name=_u_open_tickets" label="_u_open_tickets" max_length="40" name="u__u_open_tickets" type="integer"/>
+        <element attributes="import_attribute_name=u_nps_score" label="Nps score" max_length="40" name="u_nps_score" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_last_record" label="Last record" max_length="40" name="u_last_record" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_account_manager" label="Account manager" max_length="40" name="u_account_manager" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_substituier_tier" label="Substituier tier" max_length="40" name="u_substituier_tier" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_contract_end" label="Contract end" max_length="40" name="u_contract_end" type="string"/>
+        <element attributes="import_attribute_name=u_churn_risk_score" label="Churn risk score" max_length="40" name="u_churn_risk_score" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_ai_risk_explanation" label="Ai risk explanation" max_length="79" name="u_ai_risk_explanation" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_comapany_name" label="Comapany name" max_length="40" name="u_comapany_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_contract_start" label="Contract start" max_length="40" name="u_contract_start" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_last_login" label="Last login" max_length="40" name="u_last_login" type="string"/>
+        <element attributes="import_attribute_name=u_arr" label="Arr" max_length="40" name="u_arr" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_customer_id" label="Customer ID" max_length="40" name="u_customer_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=u_risk_catregory" label="Risk catregory" max_length="40" name="u_risk_catregory" type="string"/>
+    </element>
+</database>
