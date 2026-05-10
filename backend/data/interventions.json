@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "customer": "Northwind Labs",
+    "action": "Executive review call",
+    "manager": "A. Mehra",
+    "status": "Completed"
+  },
+
+  {
+    "id": 2,
+    "customer": "Helios Banking",
+    "action": "Offer premium support",
+    "manager": "S. Kapoor",
+    "status": "In Progress"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "company": "Northwind Labs",
+    "loginDays": 14,
+    "tickets": 8,
+    "nps": 10,
+    "arr": 480000,
+    "industry": "Fintech"
+  },
+
+  {
+    "id": 2,
+    "company": "Helios Banking",
+    "loginDays": 10,
+    "tickets": 6,
+    "nps": 18,
+    "arr": 320000,
+    "industry": "Healthcare"
+  },
+
+  {
+    "id": 3,
+    "company": "Vector Health",
+    "loginDays": 5,
+    "tickets": 4,
+    "nps": 30,
+    "arr": 180000,
+    "industry": "SaaS"
+  },
+
+  {
+    "id": 4,
+    "company": "Forge Logistics",
+    "loginDays": 3,
+    "tickets": 2,
+    "nps": 45,
+    "arr": 150000,
+    "industry": "Logistics"
+  },
+
+  {
+    "id": 5,
+    "company": "Acme Retail",
+    "loginDays": 12,
+    "tickets": 7,
+    "nps": 15,
+    "arr": 210000,
+    "industry": "Retail"
+  }
+]
