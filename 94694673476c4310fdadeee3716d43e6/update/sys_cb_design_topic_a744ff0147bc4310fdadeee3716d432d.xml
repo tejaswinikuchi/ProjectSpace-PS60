@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__b4fa822f5f544947968cb391eb748bd5">e7447f0147bc4310fdadeee3716d43a6</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"d88b52f642144f7c8f48acb901163ce0","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"d88b52f642144f7c8f48acb901163ce0"}],"goals":[{"name":"primary","trigger_id":"d88b52f642144f7c8f48acb901163ce0","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"2fdb6a75dc444ff58e96e5f343f18ed9","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"343280feb95c4280a314c625af06d144","name":"End","expert_mode":false},{"type":"InputPrompt","variable_id":"2c2b1c595cb146a592f36e529b3694c1","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:a1ab2e4947344310fdadeee3716d4333:node:5f87d8c78cac46688bf36fd6d29c6dbe:field:Message\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"5f87d8c78cac46688bf36fd6d29c6dbe","name":"user_prompt","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ScriptedAction","script":"(function execute() {\n    try {\n        var r = new sn_ws.RESTMessageV2('Google Gemini API', 'GenerateContent');\n        r.setStringParameterNoEscape('prompt_text', vaInputs.user_prompt.getValue());\n        \n        var response = r.execute();\n        var responseBody = response.getBody();\n        var parsed = JSON.parse(responseBody);\n        \n        // This puts the Gemini text into our 'ai_answer' bucket\n        vaVars.ai_answer = parsed.candidates[0].content.parts[0].text;\n    } catch (ex) {\n        vaVars.ai_answer = \"Error: \" + ex.message;\n    }\n})();\n","id":"538236974acb451ca95f599a8b8bb92d","name":"Call Gemini API","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"{{vaVars.ai_answer}}"}],"request_feedback":true,"isCollapsible":true,"id":"1889c617cc1443edaee32841cbe30eea","name":"Display Gemini Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false}],"edges":[{"type":"Edge","source_node_id":"2fdb6a75dc444ff58e96e5f343f18ed9","target_node_id":"5f87d8c78cac46688bf36fd6d29c6dbe","id":"15043893c6194931964297607d4da057"},{"type":"Edge","source_node_id":"5f87d8c78cac46688bf36fd6d29c6dbe","target_node_id":"538236974acb451ca95f599a8b8bb92d","id":"07483e84c62d4ad49382a485ca50cb43"},{"type":"Edge","source_node_id":"538236974acb451ca95f599a8b8bb92d","target_node_id":"1889c617cc1443edaee32841cbe30eea","id":"3e022a6a8b9f41aa9a60e6a0c494121d"},{"type":"Edge","source_node_id":"1889c617cc1443edaee32841cbe30eea","target_node_id":"343280feb95c4280a314c625af06d144","id":"69be834a9ef64682977caf8ebe39ff82"}],"id":"primary"}],"script_variables":[{"type":"String","name":"ai_answer","value":{"type":"String","mode":"string","value":"String"},"list":false,"id":"06185ff0236448379c4fbefd2fc53de8","formatType":"text","secure":false,"sensitive":false,"aiInput":false}],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"user_prompt","list":false,"id":"2c2b1c595cb146a592f36e529b3694c1","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"94694673476c4310fdadeee3716d43e6","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":true,"id":"a1ab2e4947344310fdadeee3716d4333","name":"_PRVW__b4fa822f5f544947968cb391eb748bd5","key_phrases":["Gemini AI Assistant","I want to talk to the AI","Ask Gemini","Generative AI help","Help me write something"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":true,"context_profiles":[],"title":"Gemini","library":false,"csTopicId":"52ec2fcd473c4310fdadeee3716d43d1","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>a1ab2e4947344310fdadeee3716d4333</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "2fdb6a75dc444ff58e96e5f343f18ed9": {
+          "id": "2fdb6a75dc444ff58e96e5f343f18ed9",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "343280feb95c4280a314c625af06d144": {
+          "id": "343280feb95c4280a314c625af06d144",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "5f87d8c78cac46688bf36fd6d29c6dbe": {
+          "id": "5f87d8c78cac46688bf36fd6d29c6dbe",
+          "stepType": "TextPrompt",
+          "name": "user_prompt",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hi! I'm Gemini. What can I help you with?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "2c2b1c595cb146a592f36e529b3694c1",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "538236974acb451ca95f599a8b8bb92d": {
+          "id": "538236974acb451ca95f599a8b8bb92d",
+          "name": "Call Gemini API",
+          "script": "(function execute() {\n    try {\n        var r = new sn_ws.RESTMessageV2('Google Gemini API', 'GenerateContent');\n        r.setStringParameterNoEscape('prompt_text', vaInputs.user_prompt.getValue());\n        \n        var response = r.execute();\n        var responseBody = response.getBody();\n        var parsed = JSON.parse(responseBody);\n        \n        // This puts the Gemini text into our 'ai_answer' bucket\n        vaVars.ai_answer = parsed.candidates[0].content.parts[0].text;\n    } catch (ex) {\n        vaVars.ai_answer = \"Error: \" + ex.message;\n    }\n})();\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "1889c617cc1443edaee32841cbe30eea": {
+          "id": "1889c617cc1443edaee32841cbe30eea",
+          "stepType": "TextOutput",
+          "name": "Display Gemini Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.ai_answer}}",
+                        "displayValue": "Script Variables➛ai_answer"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "282a5419-88c3-4a84-8322-0eb79d5c5d88"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "15043893c6194931964297607d4da057",
+          "edgeType": "Edge",
+          "source": "2fdb6a75dc444ff58e96e5f343f18ed9",
+          "target": "5f87d8c78cac46688bf36fd6d29c6dbe",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "07483e84c62d4ad49382a485ca50cb43",
+          "edgeType": "Edge",
+          "source": "5f87d8c78cac46688bf36fd6d29c6dbe",
+          "target": "538236974acb451ca95f599a8b8bb92d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3e022a6a8b9f41aa9a60e6a0c494121d",
+          "edgeType": "Edge",
+          "source": "538236974acb451ca95f599a8b8bb92d",
+          "target": "1889c617cc1443edaee32841cbe30eea",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "69be834a9ef64682977caf8ebe39ff82",
+          "edgeType": "Edge",
+          "source": "1889c617cc1443edaee32841cbe30eea",
+          "target": "343280feb95c4280a314c625af06d144",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "06185ff0236448379c4fbefd2fc53de8": {
+      "id": "06185ff0236448379c4fbefd2fc53de8",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "ai_answer",
+      "label": "ai_answer",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "2c2b1c595cb146a592f36e529b3694c1": {
+      "id": "2c2b1c595cb146a592f36e529b3694c1",
+      "name": "user_prompt",
+      "label": "User_prompt",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc3ODQxMTA3NzA4NSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "5f87d8c78cac46688bf36fd6d29c6dbe",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__b4fa822f5f544947968cb391eb748bd5</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-10 16:20:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>a744ff0147bc4310fdadeee3716d432d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_cb_design_topic_a744ff0147bc4310fdadeee3716d432d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 16:20:41</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

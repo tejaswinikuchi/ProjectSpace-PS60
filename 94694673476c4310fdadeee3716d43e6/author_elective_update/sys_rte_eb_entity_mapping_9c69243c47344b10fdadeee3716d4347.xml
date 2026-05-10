@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rte_eb_entity_mapping">
+    <sys_rte_eb_entity_mapping action="DELETE">
+        <condition_script><![CDATA[/* Example Script  (function() {          //step1: access the input variables         if (input && input.temp.u_type == 'Disk') {         //step2: return true/false             return true;         }         return false;  })(); */  (function(input) {     // Add your code here. })(input);]]></condition_script>
+        <encoded_query/>
+        <entity_mapping_group/>
+        <ignore>false</ignore>
+        <is_conditional>false</is_conditional>
+        <name>IHUB_TEMP_TARGET_MAPPING</name>
+        <order>50</order>
+        <source_sys_rte_eb_entity display_value="IHUB_TARGET_TEMP_x_2048400_churn_1_customer_profile_table">d469243c47344b10fdadeee3716d431a</source_sys_rte_eb_entity>
+        <sys_class_name>sys_rte_eb_entity_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 06:55:37</sys_created_on>
+        <sys_id>9c69243c47344b10fdadeee3716d4347</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>IHUB_TEMP_TARGET_MAPPING</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_rte_eb_definition display_value="x_2048400_churn_1_customer_profile_table_etl_ihub">cb592cf847344b10fdadeee3716d43d4</sys_rte_eb_definition>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_rte_eb_entity_mapping_9c69243c47344b10fdadeee3716d4347</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 06:55:37</sys_updated_on>
+        <target_sys_rte_eb_entity display_value="Target_x_2048400_churn_1_customer_profile_table">7f59203c47344b10fdadeee3716d43e3</target_sys_rte_eb_entity>
+    </sys_rte_eb_entity_mapping>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</application>
+        <file_path/>
+        <instance_id>d618db98fb70ea140c92f633beefdca9</instance_id>
+        <instance_name>dev317514</instance_name>
+        <name>sys_rte_eb_entity_mapping_9c69243c47344b10fdadeee3716d4347</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_rte_eb_entity_mapping"&gt;&lt;sys_rte_eb_entity_mapping action="INSERT_OR_UPDATE"&gt;&lt;condition_script&gt;&lt;![CDATA[/* Example Script  (function() {          //step1: access the input variables         if (input &amp;&amp; input.temp.u_type == 'Disk') {         //step2: return true/false             return true;         }         return false;  })(); */  (function(input) {     // Add your code here. })(input);]]&gt;&lt;/condition_script&gt;&lt;encoded_query/&gt;&lt;entity_mapping_group/&gt;&lt;ignore&gt;false&lt;/ignore&gt;&lt;is_conditional&gt;false&lt;/is_conditional&gt;&lt;name&gt;IHUB_TEMP_TARGET_MAPPING&lt;/name&gt;&lt;order&gt;50&lt;/order&gt;&lt;source_sys_rte_eb_entity display_value="IHUB_TARGET_TEMP_x_2048400_churn_1_customer_profile_table"&gt;d469243c47344b10fdadeee3716d431a&lt;/source_sys_rte_eb_entity&gt;&lt;sys_class_name&gt;sys_rte_eb_entity_mapping&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-05-09 06:55:37&lt;/sys_created_on&gt;&lt;sys_id&gt;9c69243c47344b10fdadeee3716d4347&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;IHUB_TEMP_TARGET_MAPPING&lt;/sys_name&gt;&lt;sys_package display_value="Churn Prediction System" source="x_2048400_churn_1"&gt;94694673476c4310fdadeee3716d43e6&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_rte_eb_definition display_value="x_2048400_churn_1_customer_profile_table_etl_ihub"&gt;cb592cf847344b10fdadeee3716d43d4&lt;/sys_rte_eb_definition&gt;&lt;sys_scope display_value="Churn Prediction System"&gt;94694673476c4310fdadeee3716d43e6&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_rte_eb_entity_mapping_9c69243c47344b10fdadeee3716d4347&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-05-09 06:55:37&lt;/sys_updated_on&gt;&lt;target_sys_rte_eb_entity display_value="Target_x_2048400_churn_1_customer_profile_table"&gt;7f59203c47344b10fdadeee3716d43e3&lt;/target_sys_rte_eb_entity&gt;&lt;/sys_rte_eb_entity_mapping&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-130225470</payload_hash>
+        <record_name>IHUB_TEMP_TARGET_MAPPING</record_name>
+        <reverted_from/>
+        <source>86f611204774c710fdadeee3716d43d5</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 06:55:37</sys_created_on>
+        <sys_id>9069243c47344b10fdadeee3716d434b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19e0b852aea0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 06:55:37</sys_updated_on>
+        <type>RTE Entity Mapping</type>
+        <update_guid>5069243cba344b10a2d4aca174057d4a</update_guid>
+        <update_guid_history>5069243cba344b10a2d4aca174057d4a:-130225470</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 06:55:49</sys_created_on>
+        <sys_db_object display_value="" name="sys_rte_eb_entity_mapping">sys_rte_eb_entity_mapping</sys_db_object>
+        <sys_id>106332f89db447639eb2c5bfb8903659</sys_id>
+        <sys_metadata>9c69243c47344b10fdadeee3716d4347</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>IHUB_TEMP_TARGET_MAPPING</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_scope_delete display_value="">013b9702a59142e0890f71dd3722e400</sys_scope_delete>
+        <sys_update_name>sys_rte_eb_entity_mapping_9c69243c47344b10fdadeee3716d4347</sys_update_name>
+        <sys_update_version display_value="sys_rte_eb_entity_mapping_9c69243c47344b10fdadeee3716d4347">9069243c47344b10fdadeee3716d434b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 06:55:49</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

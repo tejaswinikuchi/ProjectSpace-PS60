@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rte_eb_etl_entity">
+    <sys_rte_eb_etl_entity action="INSERT_OR_UPDATE">
+        <child_id_field/>
+        <name>Target_x_2048400_churn_1_support_ticket</name>
+        <parent_entity/>
+        <parent_id_field/>
+        <path>x_2048400_churn_1_support_ticket</path>
+        <run_business_rules>true</run_business_rules>
+        <synchronize_inserts>false</synchronize_inserts>
+        <sys_class_name>sys_rte_eb_etl_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 19:51:37</sys_created_on>
+        <sys_id>5ffa1bb847b0cb10fdadeee3716d4309</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Target_x_2048400_churn_1_support_ticket</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_rte_eb_definition display_value="x_2048400_churn_1_support_ticket Data Ma_etl_ihub">dbfad7b847b0cb10fdadeee3716d432e</sys_rte_eb_definition>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_rte_eb_etl_entity_5ffa1bb847b0cb10fdadeee3716d4309</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 19:51:37</sys_updated_on>
+        <table>x_2048400_churn_1_support_ticket</table>
+    </sys_rte_eb_etl_entity>
+</record_update>

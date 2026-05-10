@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="bd98d37447b0cb10fdadeee3716d430c" label="Support Ticket" max_length="40" name="x_2048400_churn_1_support_ticket" type="collection">
+        <element label="Assigned to" max_length="32" name="assigned_to" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Ticket Description" max_length="600" name="u_string_2" type="string"/>
+        <element attributes="encode_utf8=false" label="Customer" max_length="32" name="u_reference_1" reference="x_2048400_churn_1_customer_profile_table" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Sentiment" max_length="40" name="u_choice_3" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Negative" sequence="2" value="negative"/>
+                <element inactive_on_update="false" label="Positive" sequence="0" value="positive"/>
+                <element inactive_on_update="false" label="Fruetrated" sequence="3" value="fruetrated"/>
+                <element inactive_on_update="false" label="Neutral" sequence="1" value="neutral"/>
+            </choice>
+        </element>
+        <element label="Customer" max_length="32" name="customer" reference="x_2048400_churn_1_customer_profile_table" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Priority" max_length="40" name="u_choice_4" type="string">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+            </choice>
+        </element>
+        <element choice="1" label="Ticket status" max_length="40" name="ticket_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="2" value="resolved"/>
+                <element inactive_on_update="false" label="Open" sequence="0" value="open"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+                <element inactive_on_update="false" label="Closed" sequence="3" value="closed"/>
+            </choice>
+        </element>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element choice="1" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Assigned to" max_length="32" name="u_reference_6" reference="cmdb_ci_appl_dot_net" type="reference"/>
+        <element choice="1" label="Sentiment" max_length="40" name="sentiment" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="negative" sequence="2" value="negative"/>
+                <element inactive_on_update="false" label="neutral" sequence="1" value="neutral"/>
+                <element inactive_on_update="false" label="Positive" sequence="0" value="positive"/>
+                <element inactive_on_update="false" label="Frustrated" sequence="3" value="frustrated"/>
+            </choice>
+        </element>
+        <element label="Ticket Description" max_length="400" name="ticket_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="closed" label="Ticket Status" max_length="40" name="u_choice_7" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="2" value="resolved"/>
+                <element inactive_on_update="false" label="Closed" sequence="3" value="closed"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in progress"/>
+                <element inactive_on_update="false" label="Open" sequence="0" value="open"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Created Date" max_length="40" name="u_glide_date_time_5" type="glide_date_time"/>
+        <element label="Created Date" max_length="40" name="created_date" type="glide_date_time"/>
+        <index name="index">
+            <element name="assigned_to"/>
+        </index>
+        <index name="index2">
+            <element name="customer"/>
+        </index>
+        <index name="index3">
+            <element name="sys_class_name"/>
+        </index>
+        <index name="index4">
+            <element name="u_reference_1"/>
+        </index>
+        <index name="index5">
+            <element name="u_reference_6"/>
+        </index>
+    </element>
+</database>

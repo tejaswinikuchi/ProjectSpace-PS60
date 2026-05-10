@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__5b8ec932bc4e41848ed1636a317b8ec8">e5cce20d47344310fdadeee3716d4312</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"215b54d1dd814a18b91b2f8a74ca75b7","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"215b54d1dd814a18b91b2f8a74ca75b7"}],"goals":[{"name":"primary","trigger_id":"215b54d1dd814a18b91b2f8a74ca75b7","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"a71e887aaf6043f488933087c116eecf","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"b56f1cbb5dde453a85108e0afd0dbe99","name":"End","expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:7a80940c4aaf433b89c4267e80b6adf7:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"7a80940c4aaf433b89c4267e80b6adf7","name":"Welcome_Message","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"InputPrompt","variable_id":"0a3015aa209642f39c15d3307032cdbf","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Enter customer company name\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"b2034ed0b33f492ea18b7d9513c869cd","name":"customer_company_name","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ScriptOutputPrompt","output_type":"single_part","id":"bd0a1939eca6466bb01262550eed91cf","name":"Lookup_Customer","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"value":{"type":"String","mode":"string","value":"(function execute() {\n\n    var gr = new GlideRecord('u_churn_customer');\n\n    gr.addQuery('u_company_name', vaVars.customer_name);\n\n    gr.query();\n\n    if(gr.next()) {\n\n        vaVars.customer_found = \"true\";\n\n        vaVars.company =\n        gr.u_company_name.toString();\n\n        vaVars.risk_score =\n        gr.u_churn_risk_score.toString();\n\n        vaVars.risk_category =\n        gr.u_risk_category.toString();\n\n        vaVars.open_tickets =\n        gr.u_open_tickets.toString();\n\n        vaVars.nps =\n        gr.u_nps_score.toString();\n\n        vaVars.ai_explanation =\n        gr.u_ai_risk_explanation.toString();\n\n        return \"Customer found\";\n\n    }\n\n    else {\n\n        vaVars.customer_found = \"false\";\n\n        return \"Customer not found\";\n    }\n\n})();"},"secure":false},{"type":"Decision","name":"Customer_Found_Check","branches":[{"type":"Branch","label":"Customer Found","expression":{"type":"Applicability","mode":"query","value":"customer_found=true"},"id":"9d581f584a334c26bfd785067f3e1820","name":"Customer Found","expert_mode":false},{"type":"Branch","label":"customer_not_found","expression":{"type":"Applicability","mode":"query","value":"customer_found=false"},"id":"da2bc42cd42045ecb1bf4ef623ceb723","name":"customer_not_found","expert_mode":false}],"id":"b5b0a6307d33407c856548ba4b462b6f","goal_id":"primary","expert_mode":false},{"type":"InputPrompt","variable_id":"daa4c3f613294774a3aecce23c3490f2","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"56b84cbfb18e4b44928c80a858b28dd7","name":"customer_found","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:b3a3ab5df16d4d1d9080cacdb2517195:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"b3a3ab5df16d4d1d9080cacdb2517195","name":"Risk_Summary","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"Decision","name":"Risk_Level_Check","branches":[{"type":"Branch","label":"Critical","expression":{"type":"Applicability","mode":"query","value":"risk_category=Critical"},"id":"bd0fe3454a1342728abc8a1b1cccbb77","name":"Critical","expert_mode":false},{"type":"Branch","label":"High","expression":{"type":"Applicability","mode":"query","value":"risk_category=High"},"id":"c2f4018942734d6589966a1eaf0179b2","name":"High","expert_mode":false},{"type":"Branch","label":"Medium","expression":{"type":"Applicability","mode":"query","value":"risk_category=Medium"},"id":"fdae9624206c47fb95cfbe38cda6332f","name":"Medium","expert_mode":false},{"type":"Branch","label":"Low","expression":{"type":"Applicability","mode":"query","value":"risk_category=Low"},"id":"27d46ef365c546bea13db216663c8740","name":"Low","expert_mode":false}],"id":"6e42ee074c454ca79a00fc948f581950","goal_id":"primary","expert_mode":false},{"type":"InputPrompt","variable_id":"7bd0a57186b34b2bb8f9a663cbf6bd00","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Set by NLU\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"metadataScript":"","cardName":"","cardFields":[],"id":"d5d9d371268a417b911c49141f87fcd8","name":"risk_category","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"(function() { return (function() { return false; })()})()"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:3ee08ca6218c4f3ca468cd97736fa9e7:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"3ee08ca6218c4f3ca468cd97736fa9e7","name":"Critical_Risk_Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:de1ba6e738b5432084138f32887233dd:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"de1ba6e738b5432084138f32887233dd","name":"High_Risk_Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:bf9cdee49ffb4777b92355aa22cda00f:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"bf9cdee49ffb4777b92355aa22cda00f","name":"Medium_Risk_Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:32332d1b29c8497f93f6ce9845eaeeb0:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"32332d1b29c8497f93f6ce9845eaeeb0","name":"Low_Risk_Response","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:017cb9e3b6b2499b863bb1adecebcf9c:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"017cb9e3b6b2499b863bb1adecebcf9c","name":"AI_Recommendations","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"556f753d9d76402ea3bac9f256b20387","name":"Create_Task_Check","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"21bd6acae5ad48339e365650df0a7d44","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Do you want to create a retention intervention task?\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"description":""},{"type":"Decision","name":"Decision","branches":[{"type":"Branch","label":"Yes","expression":{"type":"Applicability","mode":"query","value":""},"id":"e91f566b51914d4d88a463ab9fde58c8","name":"Yes","expert_mode":false},{"type":"Branch","label":"No","expression":{"type":"Applicability","mode":"query","value":"create_task_check=no"},"id":"cf341c1e6bc3407d81e126da2d43472d","name":"No","expert_mode":false}],"id":"2f670f0c0c9d4462a26e3c68c828d295","goal_id":"primary","expert_mode":false},{"type":"ScriptOutputPrompt","output_type":"single_part","id":"1ad300bc61b847a7a28acdb70cc7b5ce","name":"Create_Retention_Task","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"value":{"type":"String","mode":"string","value":"(function execute() {\n\n    var customer = new GlideRecord('u_churn_customer');\n\n    customer.addQuery(\n    'u_company_name',\n    vaVars.customer_name\n    );\n\n    customer.query();\n\n    if(customer.next()) {\n\n        var task =\n        new GlideRecord('u_churn_intervention');\n\n        task.initialize();\n\n        task.u_customer =\n        customer.sys_id;\n\n        task.u_intervention_type =\n        'Call';\n\n        task.u_outcome =\n        'Pending';\n\n        task.u_notes =\n        'Created automatically from Virtual Agent';\n\n        task.insert();\n\n        vaVars.task_message =\n        'Retention intervention task created successfully.';\n    }\n\n    else {\n\n        vaVars.task_message =\n        'Customer not found. Task not created.';\n    }\n\n    return vaVars.task_message;\n\n})();"},"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:9fdc46f2798749838648c0bfdee1957a:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"9fdc46f2798749838648c0bfdee1957a","name":"Task_Creation_Success","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"va:topic:569add8947700310fdadeee3716d43ed:node:ba8fae17bf3a40a1b88fe30dff5da5af:field:0\", vaContext.getRequesterLang())"}],"request_feedback":true,"isCollapsible":true,"id":"ba8fae17bf3a40a1b88fe30dff5da5af","name":"Customer_Not_Found","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false}],"edges":[{"type":"Edge","source_node_id":"017cb9e3b6b2499b863bb1adecebcf9c","target_node_id":"556f753d9d76402ea3bac9f256b20387","id":"12b34a05933d4e72bd0409e4e692ffb9"},{"type":"Edge","source_node_id":"2f670f0c0c9d4462a26e3c68c828d295","target_node_id":"1ad300bc61b847a7a28acdb70cc7b5ce","branch_id":"e91f566b51914d4d88a463ab9fde58c8","id":"95c0819d222c412eb19ca832159f226d","name":"e91f566b51914d4d88a463ab9fde58c8"},{"type":"Edge","source_node_id":"7a80940c4aaf433b89c4267e80b6adf7","target_node_id":"b2034ed0b33f492ea18b7d9513c869cd","id":"3d59a10ef0914439bf01bc6537099371"},{"type":"Edge","source_node_id":"b2034ed0b33f492ea18b7d9513c869cd","target_node_id":"bd0a1939eca6466bb01262550eed91cf","id":"a27a5352d9e14d25b18c107336119749"},{"type":"Edge","source_node_id":"bd0a1939eca6466bb01262550eed91cf","target_node_id":"b5b0a6307d33407c856548ba4b462b6f","id":"4303c96c7e7a4845b41119a796208b6a"},{"type":"Edge","source_node_id":"b5b0a6307d33407c856548ba4b462b6f","target_node_id":"b3a3ab5df16d4d1d9080cacdb2517195","branch_id":"9d581f584a334c26bfd785067f3e1820","id":"b918bfda26844c8f9b64b6ea25b58977","name":"9d581f584a334c26bfd785067f3e1820"},{"type":"Edge","source_node_id":"56b84cbfb18e4b44928c80a858b28dd7","target_node_id":"7a80940c4aaf433b89c4267e80b6adf7","id":"e4db54c299354902a3d90187c3a9af87"},{"type":"Edge","source_node_id":"b3a3ab5df16d4d1d9080cacdb2517195","target_node_id":"6e42ee074c454ca79a00fc948f581950","id":"70a5b54eaf334632b9f5f71eb0ee56df"},{"type":"Edge","source_node_id":"a71e887aaf6043f488933087c116eecf","target_node_id":"d5d9d371268a417b911c49141f87fcd8","id":"de4c2e90779d4935989831b562c54a26"},{"type":"Edge","source_node_id":"d5d9d371268a417b911c49141f87fcd8","target_node_id":"56b84cbfb18e4b44928c80a858b28dd7","id":"466af1e70e2a442aa23602269bf78cd1"},{"type":"Edge","source_node_id":"6e42ee074c454ca79a00fc948f581950","target_node_id":"3ee08ca6218c4f3ca468cd97736fa9e7","branch_id":"bd0fe3454a1342728abc8a1b1cccbb77","id":"585ffdcd5317478b9bd8228a944525d2","name":"bd0fe3454a1342728abc8a1b1cccbb77"},{"type":"Edge","source_node_id":"3ee08ca6218c4f3ca468cd97736fa9e7","target_node_id":"017cb9e3b6b2499b863bb1adecebcf9c","id":"8ba6d4ad3b884d7988b8156da4eeef98"},{"type":"Edge","source_node_id":"6e42ee074c454ca79a00fc948f581950","target_node_id":"de1ba6e738b5432084138f32887233dd","branch_id":"c2f4018942734d6589966a1eaf0179b2","id":"c01b897880e942218cd6ab3b37019a62","name":"c2f4018942734d6589966a1eaf0179b2"},{"type":"Edge","source_node_id":"de1ba6e738b5432084138f32887233dd","target_node_id":"017cb9e3b6b2499b863bb1adecebcf9c","id":"6daa8168cb1841aab0aac29b97fa1c5b"},{"type":"Edge","source_node_id":"6e42ee074c454ca79a00fc948f581950","target_node_id":"bf9cdee49ffb4777b92355aa22cda00f","branch_id":"fdae9624206c47fb95cfbe38cda6332f","id":"840a10cd425c41619dae757c11396586","name":"fdae9624206c47fb95cfbe38cda6332f"},{"type":"Edge","source_node_id":"bf9cdee49ffb4777b92355aa22cda00f","target_node_id":"017cb9e3b6b2499b863bb1adecebcf9c","id":"85b6d2cc91204754b03ab3690408d95d"},{"type":"Edge","source_node_id":"6e42ee074c454ca79a00fc948f581950","target_node_id":"32332d1b29c8497f93f6ce9845eaeeb0","branch_id":"27d46ef365c546bea13db216663c8740","id":"c549e85131994f4d91926045a3b97c1e","name":"27d46ef365c546bea13db216663c8740"},{"type":"Edge","source_node_id":"32332d1b29c8497f93f6ce9845eaeeb0","target_node_id":"017cb9e3b6b2499b863bb1adecebcf9c","id":"0710d05611aa4bd397e4b6a03badbc59"},{"type":"Edge","source_node_id":"556f753d9d76402ea3bac9f256b20387","target_node_id":"2f670f0c0c9d4462a26e3c68c828d295","id":"5514a7f1a5b3425abaad6837674d8f8b"},{"type":"Edge","source_node_id":"2f670f0c0c9d4462a26e3c68c828d295","target_node_id":"b56f1cbb5dde453a85108e0afd0dbe99","branch_id":"cf341c1e6bc3407d81e126da2d43472d","id":"22b7805b100449dbb7b46d1deb3d7029","name":"cf341c1e6bc3407d81e126da2d43472d"},{"type":"Edge","source_node_id":"1ad300bc61b847a7a28acdb70cc7b5ce","target_node_id":"9fdc46f2798749838648c0bfdee1957a","id":"0fbf56cefff94df28c9e4ed300b7d23a"},{"type":"Edge","source_node_id":"9fdc46f2798749838648c0bfdee1957a","target_node_id":"b56f1cbb5dde453a85108e0afd0dbe99","id":"13a364ed0f6d4b5ca6ab0f8a273de045"},{"type":"Edge","source_node_id":"b5b0a6307d33407c856548ba4b462b6f","target_node_id":"ba8fae17bf3a40a1b88fe30dff5da5af","branch_id":"da2bc42cd42045ecb1bf4ef623ceb723","id":"eb9ec7b65fb140988efcb85487bacf15","name":"da2bc42cd42045ecb1bf4ef623ceb723"},{"type":"Edge","source_node_id":"ba8fae17bf3a40a1b88fe30dff5da5af","target_node_id":"b56f1cbb5dde453a85108e0afd0dbe99","id":"0d13d552c9a445fb9979565cdb3d69c4"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"customer_company_name","list":false,"id":"0a3015aa209642f39c15d3307032cdbf","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"customer_found","list":false,"id":"daa4c3f613294774a3aecce23c3490f2","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"risk_category","list":false,"id":"7bd0a57186b34b2bb8f9a663cbf6bd00","formatType":"text","secure":false,"sensitive":false,"aiInput":false},{"type":"Choice","choices":[{"name":"Yes","element":"yes"},{"name":"No","element":"no"}],"id":"21bd6acae5ad48339e365650df0a7d44","name":"create_task_check","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false,"label":"Create_Task_Check"}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"94694673476c4310fdadeee3716d43e6","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"569add8947700310fdadeee3716d43ed","name":"_PRVW__5b8ec932bc4e41848ed1636a317b8ec8","key_phrases":["customer_churn_risk_query","customer risk","churn","retention","hight risk","customer health","risk score"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"AI chatbot to check customer churn risk scores and recommendations","model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"customer_churn_risk_query","library":false,"csTopicId":"3f69a54547f80310fdadeee3716d431f","readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>569add8947700310fdadeee3716d43ed</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "a71e887aaf6043f488933087c116eecf": {
+          "id": "a71e887aaf6043f488933087c116eecf",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "b56f1cbb5dde453a85108e0afd0dbe99": {
+          "id": "b56f1cbb5dde453a85108e0afd0dbe99",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "7a80940c4aaf433b89c4267e80b6adf7": {
+          "id": "7a80940c4aaf433b89c4267e80b6adf7",
+          "stepType": "TextOutput",
+          "name": "Welcome_Message",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Welcome to the Churn Risk Assistant"
+                    },
+                    {
+                      "type": "emoji",
+                      "emoji": {
+                        "id": "grinning",
+                        "name": "Grinning Face",
+                        "short_names": [
+                          "grinning"
+                        ],
+                        "colons": ":grinning:",
+                        "emoticons": [],
+                        "unified": "1f600",
+                        "skin": null,
+                        "native": "😀"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " "
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "I can:"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Check customer churn risk"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Show AI recommendations"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Display critical customers"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Create retention tasks"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Please enter the customer company name."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "840d61f5c6d2484b92c7b777c7f52a0c"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "b2034ed0b33f492ea18b7d9513c869cd": {
+          "id": "b2034ed0b33f492ea18b7d9513c869cd",
+          "stepType": "TextPrompt",
+          "name": "customer_company_name",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Enter customer company name"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "0a3015aa209642f39c15d3307032cdbf",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "bd0a1939eca6466bb01262550eed91cf": {
+          "id": "bd0a1939eca6466bb01262550eed91cf",
+          "stepType": "ScriptOutput",
+          "name": "Lookup_Customer",
+          "output_type": "single_part",
+          "script": "(function execute() {\n\n    var gr = new GlideRecord('u_churn_customer');\n\n    gr.addQuery('u_company_name', vaVars.customer_name);\n\n    gr.query();\n\n    if(gr.next()) {\n\n        vaVars.customer_found = \"true\";\n\n        vaVars.company =\n        gr.u_company_name.toString();\n\n        vaVars.risk_score =\n        gr.u_churn_risk_score.toString();\n\n        vaVars.risk_category =\n        gr.u_risk_category.toString();\n\n        vaVars.open_tickets =\n        gr.u_open_tickets.toString();\n\n        vaVars.nps =\n        gr.u_nps_score.toString();\n\n        vaVars.ai_explanation =\n        gr.u_ai_risk_explanation.toString();\n\n        return \"Customer found\";\n\n    }\n\n    else {\n\n        vaVars.customer_found = \"false\";\n\n        return \"Customer not found\";\n    }\n\n})();",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "b5b0a6307d33407c856548ba4b462b6f": {
+          "id": "b5b0a6307d33407c856548ba4b462b6f",
+          "stepType": "Decision",
+          "name": "Customer_Found_Check"
+        },
+        "56b84cbfb18e4b44928c80a858b28dd7": {
+          "id": "56b84cbfb18e4b44928c80a858b28dd7",
+          "stepType": "SlotFillPrompt",
+          "name": "customer_found",
+          "type": "string",
+          "withNluUserInput": false,
+          "skipIfFulfilled": true,
+          "variableId": "daa4c3f613294774a3aecce23c3490f2",
+          "values": {
+            "supportedControlNote": "",
+            "name": "",
+            "variableName": "",
+            "label": "Text 43",
+            "prompt": {
+              "mode": "simple",
+              "value": "Set by NLU"
+            },
+            "inputType": {
+              "format": "Text",
+              "script": ""
+            },
+            "detailDescription": "",
+            "skipIfFulfilled": false,
+            "node_id": "",
+            "variable_name": "",
+            "headerCardNote": "Add cards which may include images or YouTube videos.",
+            "hasCardHeader": false,
+            "cardMetadata": {
+              "mode": "card",
+              "metadataScript": "",
+              "cardTemplate": "",
+              "cardFields": {},
+              "cardDefinition": {}
+            },
+            "helpTextNote": "Add help text that will display from an icon next to the message.",
+            "helpText": false,
+            "helpTextMessage": {
+              "mode": "simple",
+              "value": ""
+            },
+            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
+            "secure": false,
+            "encryptionHashFunction": "SHA-256",
+            "encryptionSalt": {
+              "value": "MTc3ODM5NTY4NjAwNyBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+              "mode": "simple"
+            },
+            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
+            "defaultValue": {
+              "value": "",
+              "mode": "simple"
+            },
+            "acknowledgeMsg": {
+              "value": "",
+              "mode": "simple"
+            },
+            "confirmMessage": {
+              "value": "",
+              "mode": "simple"
+            },
+            "withNluUserInput": false,
+            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
+            "applicability": {
+              "mode": "script",
+              "value": "(function() { return false; })()"
+            },
+            "skippable": {
+              "value": "",
+              "mode": "query"
+            },
+            "skipReprompt": {
+              "value": "",
+              "mode": "query"
+            }
+          },
+          "hidden": true,
+          "detailDescription": ""
+        },
+        "b3a3ab5df16d4d1d9080cacdb2517195": {
+          "id": "b3a3ab5df16d4d1d9080cacdb2517195",
+          "stepType": "TextOutput",
+          "name": "Risk_Summary",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Customer: ${company}"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Risk Score: ${risk_score}/100"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Risk Category: ${risk_category}"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Open Tickets: ${open_tickets}"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "NPS Score: ${nps}"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "AI Risk Analysis:"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "${ai_explanation}"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "50d6051e97b444949a5ae81ef60466d4"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "6e42ee074c454ca79a00fc948f581950": {
+          "id": "6e42ee074c454ca79a00fc948f581950",
+          "stepType": "Decision",
+          "name": "Risk_Level_Check"
+        },
+        "d5d9d371268a417b911c49141f87fcd8": {
+          "id": "d5d9d371268a417b911c49141f87fcd8",
+          "stepType": "SlotFillPrompt",
+          "name": "risk_category",
+          "type": "string",
+          "withNluUserInput": false,
+          "skipIfFulfilled": true,
+          "variableId": "7bd0a57186b34b2bb8f9a663cbf6bd00",
+          "values": {
+            "supportedControlNote": "",
+            "name": "",
+            "variableName": "",
+            "label": "Text 53",
+            "prompt": {
+              "mode": "simple",
+              "value": "Set by NLU"
+            },
+            "inputType": {
+              "format": "Text",
+              "script": ""
+            },
+            "detailDescription": "",
+            "skipIfFulfilled": false,
+            "node_id": "",
+            "variable_name": "",
+            "headerCardNote": "Add cards which may include images or YouTube videos.",
+            "hasCardHeader": false,
+            "cardMetadata": {
+              "mode": "card",
+              "metadataScript": "",
+              "cardTemplate": "",
+              "cardFields": {},
+              "cardDefinition": {}
+            },
+            "helpTextNote": "Add help text that will display from an icon next to the message.",
+            "helpText": false,
+            "helpTextMessage": {
+              "mode": "simple",
+              "value": ""
+            },
+            "secureNote": "User input will be securely masked. For passwords, please use Action inputs instead.",
+            "secure": false,
+            "encryptionHashFunction": "SHA-256",
+            "encryptionSalt": {
+              "value": "MTc3ODQwMTAxNjAwNiBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+              "mode": "simple"
+            },
+            "defaultValueNote": "Define a value for the user response to the prompt. For example, if we already know the user name, the default value might be (Script Variables &gt; Last username).",
+            "defaultValue": {
+              "value": "",
+              "mode": "simple"
+            },
+            "acknowledgeMsg": {
+              "value": "",
+              "mode": "simple"
+            },
+            "confirmMessage": {
+              "value": "",
+              "mode": "simple"
+            },
+            "withNluUserInput": false,
+            "applicabilityNote": "By default, this node will be shown in the conversation and input from the user will be required.",
+            "applicability": {
+              "mode": "script",
+              "value": "(function() { return false; })()"
+            },
+            "skippable": {
+              "value": "",
+              "mode": "query"
+            },
+            "skipReprompt": {
+              "value": "",
+              "mode": "query"
+            }
+          },
+          "hidden": true,
+          "detailDescription": ""
+        },
+        "3ee08ca6218c4f3ca468cd97736fa9e7": {
+          "id": "3ee08ca6218c4f3ca468cd97736fa9e7",
+          "stepType": "TextOutput",
+          "name": "Critical_Risk_Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "🚨 CRITICAL RISK CUSTOMER"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Immediate intervention required."
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Recommended Actions:"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Schedule executive review call"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Escalate unresolved tickets"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Offer retention discount"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Assign senior account manager"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "1ad82a39019b44b183baeaa1e5c92326"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "de1ba6e738b5432084138f32887233dd": {
+          "id": "de1ba6e738b5432084138f32887233dd",
+          "stepType": "TextOutput",
+          "name": "High_Risk_Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "⚠ HIGH RISK CUSTOMER"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Recommended Actions:"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Contact customer within 24 hours"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Schedule onboarding/training session"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "• Review support issues"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "2a8378a274fa4aa08aa6118eab573b9a"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "bf9cdee49ffb4777b92355aa22cda00f": {
+          "id": "bf9cdee49ffb4777b92355aa22cda00f",
+          "stepType": "TextOutput",
+          "name": "Medium_Risk_Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "🟡 MEDIUM RISK CUSTOMER"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Monitor customer engagement and follow up proactively."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "41390d1ce26e4ad6ad7359fa074b897b"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "32332d1b29c8497f93f6ce9845eaeeb0": {
+          "id": "32332d1b29c8497f93f6ce9845eaeeb0",
+          "stepType": "TextOutput",
+          "name": "Low_Risk_Response",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "🟢 LOW RISK CUSTOMER"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Customer health is stable."
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Continue regular engagement."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "52157b8847de495197650f8511239dc2"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "017cb9e3b6b2499b863bb1adecebcf9c": {
+          "id": "017cb9e3b6b2499b863bb1adecebcf9c",
+          "stepType": "TextOutput",
+          "name": "AI_Recommendations",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "AI Retention Recommendations:"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "1. Schedule customer success review"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "2. Improve product adoption training"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "3. Provide personalized support outreach"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "${ai_explanation}"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "44683529320343fe96677e6c8fc47013"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "556f753d9d76402ea3bac9f256b20387": {
+          "name": "Create_Task_Check",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do you want to create a retention intervention task?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "21bd6acae5ad48339e365650df0a7d44",
+          "detailDescription": "",
+          "id": "556f753d9d76402ea3bac9f256b20387",
+          "stepType": "ChoicePrompt",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "2f670f0c0c9d4462a26e3c68c828d295": {
+          "id": "2f670f0c0c9d4462a26e3c68c828d295",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "1ad300bc61b847a7a28acdb70cc7b5ce": {
+          "id": "1ad300bc61b847a7a28acdb70cc7b5ce",
+          "stepType": "ScriptOutput",
+          "name": "Create_Retention_Task",
+          "output_type": "single_part",
+          "script": "(function execute() {\n\n    var customer = new GlideRecord('u_churn_customer');\n\n    customer.addQuery(\n    'u_company_name',\n    vaVars.customer_name\n    );\n\n    customer.query();\n\n    if(customer.next()) {\n\n        var task =\n        new GlideRecord('u_churn_intervention');\n\n        task.initialize();\n\n        task.u_customer =\n        customer.sys_id;\n\n        task.u_intervention_type =\n        'Call';\n\n        task.u_outcome =\n        'Pending';\n\n        task.u_notes =\n        'Created automatically from Virtual Agent';\n\n        task.insert();\n\n        vaVars.task_message =\n        'Retention intervention task created successfully.';\n    }\n\n    else {\n\n        vaVars.task_message =\n        'Customer not found. Task not created.';\n    }\n\n    return vaVars.task_message;\n\n})();",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "9fdc46f2798749838648c0bfdee1957a": {
+          "id": "9fdc46f2798749838648c0bfdee1957a",
+          "stepType": "TextOutput",
+          "name": "Task_Creation_Success",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "${task_message}"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "a9f0d40e22594fa3a5887144b9777254"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "ba8fae17bf3a40a1b88fe30dff5da5af": {
+          "id": "ba8fae17bf3a40a1b88fe30dff5da5af",
+          "stepType": "TextOutput",
+          "name": "Customer_Not_Found",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Customer record not found in the churn prediction system."
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Please try another company name."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "274628bb934d427da245c9317b5f703e"
+            }
+          ],
+          "isCollapsible": true,
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "12b34a05933d4e72bd0409e4e692ffb9",
+          "edgeType": "Edge",
+          "source": "017cb9e3b6b2499b863bb1adecebcf9c",
+          "target": "556f753d9d76402ea3bac9f256b20387",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "95c0819d222c412eb19ca832159f226d",
+          "edgeType": "Branch",
+          "source": "2f670f0c0c9d4462a26e3c68c828d295",
+          "target": "1ad300bc61b847a7a28acdb70cc7b5ce",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": ""
+          },
+          "label": "Yes"
+        },
+        {
+          "id": "3d59a10ef0914439bf01bc6537099371",
+          "edgeType": "Edge",
+          "source": "7a80940c4aaf433b89c4267e80b6adf7",
+          "target": "b2034ed0b33f492ea18b7d9513c869cd",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a27a5352d9e14d25b18c107336119749",
+          "edgeType": "Edge",
+          "source": "b2034ed0b33f492ea18b7d9513c869cd",
+          "target": "bd0a1939eca6466bb01262550eed91cf",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4303c96c7e7a4845b41119a796208b6a",
+          "edgeType": "Edge",
+          "source": "bd0a1939eca6466bb01262550eed91cf",
+          "target": "b5b0a6307d33407c856548ba4b462b6f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "b918bfda26844c8f9b64b6ea25b58977",
+          "edgeType": "Branch",
+          "source": "b5b0a6307d33407c856548ba4b462b6f",
+          "target": "b3a3ab5df16d4d1d9080cacdb2517195",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.customer_found=true",
+            "mode": "query"
+          },
+          "label": "Customer Found"
+        },
+        {
+          "id": "e4db54c299354902a3d90187c3a9af87",
+          "edgeType": "Edge",
+          "source": "56b84cbfb18e4b44928c80a858b28dd7",
+          "target": "7a80940c4aaf433b89c4267e80b6adf7",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "70a5b54eaf334632b9f5f71eb0ee56df",
+          "edgeType": "Edge",
+          "source": "b3a3ab5df16d4d1d9080cacdb2517195",
+          "target": "6e42ee074c454ca79a00fc948f581950",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "de4c2e90779d4935989831b562c54a26",
+          "edgeType": "Edge",
+          "source": "a71e887aaf6043f488933087c116eecf",
+          "target": "d5d9d371268a417b911c49141f87fcd8",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "466af1e70e2a442aa23602269bf78cd1",
+          "edgeType": "Edge",
+          "source": "d5d9d371268a417b911c49141f87fcd8",
+          "target": "56b84cbfb18e4b44928c80a858b28dd7",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "585ffdcd5317478b9bd8228a944525d2",
+          "edgeType": "Branch",
+          "source": "6e42ee074c454ca79a00fc948f581950",
+          "target": "3ee08ca6218c4f3ca468cd97736fa9e7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_category=Critical",
+            "mode": "query"
+          },
+          "label": "Critical"
+        },
+        {
+          "id": "8ba6d4ad3b884d7988b8156da4eeef98",
+          "edgeType": "Edge",
+          "source": "3ee08ca6218c4f3ca468cd97736fa9e7",
+          "target": "017cb9e3b6b2499b863bb1adecebcf9c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c01b897880e942218cd6ab3b37019a62",
+          "edgeType": "Branch",
+          "source": "6e42ee074c454ca79a00fc948f581950",
+          "target": "de1ba6e738b5432084138f32887233dd",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_category=High",
+            "mode": "query"
+          },
+          "label": "High"
+        },
+        {
+          "id": "6daa8168cb1841aab0aac29b97fa1c5b",
+          "edgeType": "Edge",
+          "source": "de1ba6e738b5432084138f32887233dd",
+          "target": "017cb9e3b6b2499b863bb1adecebcf9c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "840a10cd425c41619dae757c11396586",
+          "edgeType": "Branch",
+          "source": "6e42ee074c454ca79a00fc948f581950",
+          "target": "bf9cdee49ffb4777b92355aa22cda00f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_category=Medium",
+            "mode": "query"
+          },
+          "label": "Medium"
+        },
+        {
+          "id": "85b6d2cc91204754b03ab3690408d95d",
+          "edgeType": "Edge",
+          "source": "bf9cdee49ffb4777b92355aa22cda00f",
+          "target": "017cb9e3b6b2499b863bb1adecebcf9c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c549e85131994f4d91926045a3b97c1e",
+          "edgeType": "Branch",
+          "source": "6e42ee074c454ca79a00fc948f581950",
+          "target": "32332d1b29c8497f93f6ce9845eaeeb0",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.risk_category=Low",
+            "mode": "query"
+          },
+          "label": "Low"
+        },
+        {
+          "id": "0710d05611aa4bd397e4b6a03badbc59",
+          "edgeType": "Edge",
+          "source": "32332d1b29c8497f93f6ce9845eaeeb0",
+          "target": "017cb9e3b6b2499b863bb1adecebcf9c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5514a7f1a5b3425abaad6837674d8f8b",
+          "edgeType": "Edge",
+          "source": "556f753d9d76402ea3bac9f256b20387",
+          "target": "2f670f0c0c9d4462a26e3c68c828d295",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "22b7805b100449dbb7b46d1deb3d7029",
+          "edgeType": "Branch",
+          "source": "2f670f0c0c9d4462a26e3c68c828d295",
+          "target": "b56f1cbb5dde453a85108e0afd0dbe99",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.create_task_check=no",
+            "mode": "query"
+          },
+          "label": "No"
+        },
+        {
+          "id": "0fbf56cefff94df28c9e4ed300b7d23a",
+          "edgeType": "Edge",
+          "source": "1ad300bc61b847a7a28acdb70cc7b5ce",
+          "target": "9fdc46f2798749838648c0bfdee1957a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "13a364ed0f6d4b5ca6ab0f8a273de045",
+          "edgeType": "Edge",
+          "source": "9fdc46f2798749838648c0bfdee1957a",
+          "target": "b56f1cbb5dde453a85108e0afd0dbe99",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "eb9ec7b65fb140988efcb85487bacf15",
+          "edgeType": "Branch",
+          "source": "b5b0a6307d33407c856548ba4b462b6f",
+          "target": "ba8fae17bf3a40a1b88fe30dff5da5af",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.customer_found=false",
+            "mode": "query"
+          },
+          "label": "customer_not_found"
+        },
+        {
+          "id": "0d13d552c9a445fb9979565cdb3d69c4",
+          "edgeType": "Edge",
+          "source": "ba8fae17bf3a40a1b88fe30dff5da5af",
+          "target": "b56f1cbb5dde453a85108e0afd0dbe99",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "0a3015aa209642f39c15d3307032cdbf": {
+      "id": "0a3015aa209642f39c15d3307032cdbf",
+      "name": "customer_company_name",
+      "label": "Customer_company_name",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTc3ODM5MDk4OTU5NyBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "b2034ed0b33f492ea18b7d9513c869cd",
+      "isHidden": false
+    },
+    "daa4c3f613294774a3aecce23c3490f2": {
+      "id": "daa4c3f613294774a3aecce23c3490f2",
+      "name": "customer_found",
+      "label": "Customer_found",
+      "varType": "string",
+      "category": "vaInputs",
+      "nodeId": "56b84cbfb18e4b44928c80a858b28dd7",
+      "isHidden": true
+    },
+    "7bd0a57186b34b2bb8f9a663cbf6bd00": {
+      "id": "7bd0a57186b34b2bb8f9a663cbf6bd00",
+      "name": "risk_category",
+      "label": "Risk_category",
+      "varType": "string",
+      "category": "vaInputs",
+      "nodeId": "d5d9d371268a417b911c49141f87fcd8",
+      "isHidden": true
+    },
+    "21bd6acae5ad48339e365650df0a7d44": {
+      "id": "21bd6acae5ad48339e365650df0a7d44",
+      "name": "create_task_check",
+      "label": "Create_Task_Check",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "556f753d9d76402ea3bac9f256b20387",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__5b8ec932bc4e41848ed1636a317b8ec8</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-10 11:08:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>21cce20d47344310fdadeee3716d4318</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_cb_design_topic_21cce20d47344310fdadeee3716d4318</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 11:08:10</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

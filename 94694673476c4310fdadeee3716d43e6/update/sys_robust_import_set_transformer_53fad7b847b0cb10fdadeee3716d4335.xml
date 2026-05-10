@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_robust_import_set_transformer">
+    <sys_robust_import_set_transformer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <batch_size>10</batch_size>
+        <description>RTE definition for x_2048400_churn_1_support_ticket Data Ma</description>
+        <name>x_2048400_churn_1_support_ticket Data Ma_rte_ihub</name>
+        <properties/>
+        <robust_transform_engine display_value="x_2048400_churn_1_support_ticket Data Ma_etl_ihub">dbfad7b847b0cb10fdadeee3716d432e</robust_transform_engine>
+        <source_table>x_2048400_churn_1_ihub_import_7afad77847b0cb10fdadeee3716d4329</source_table>
+        <sys_class_name>sys_robust_import_set_transformer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 19:51:36</sys_created_on>
+        <sys_id>53fad7b847b0cb10fdadeee3716d4335</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_2048400_churn_1_support_ticket Data Ma_rte_ihub</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_robust_import_set_transformer_53fad7b847b0cb10fdadeee3716d4335</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 19:51:36</sys_updated_on>
+        <verbose>false</verbose>
+    </sys_robust_import_set_transformer>
+</record_update>

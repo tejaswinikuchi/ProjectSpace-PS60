@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_nlu_model">
+    <sys_nlu_model action="INSERT_OR_UPDATE">
+        <category>virtual_agent</category>
+        <confidence_threshold>0.6</confidence_threshold>
+        <description/>
+        <display_name>Churn Prediction Model</display_name>
+        <ignore_punctuation/>
+        <language>en</language>
+        <last_translated_on/>
+        <model_domain/>
+        <name>ml_x_2048400_x_2048400_churn_1_global_ad21668147f04310fdadeee3716d4390</name>
+        <oob>false</oob>
+        <primary_model/>
+        <state>Draft</state>
+        <sys_class_name>sys_nlu_model</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-10 10:17:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ad21668147f04310fdadeee3716d4390</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Churn Prediction Model</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_nlu_model_ad21668147f04310fdadeee3716d4390</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 10:17:23</sys_updated_on>
+        <threshold_type>automatic</threshold_type>
+        <vocabulary_needs_review>false</vocabulary_needs_review>
+    </sys_nlu_model>
+</record_update>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rte_eb_field_mapping">
+    <sys_rte_eb_field_mapping action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <referenced_sys_rte_eb_entity/>
+        <source_sys_rte_eb_field display_value="Customer">dbf2a3fc47f0cb10fdadeee3716d43dd</source_sys_rte_eb_field>
+        <sys_class_name>sys_rte_eb_field_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 20:28:03</sys_created_on>
+        <sys_id>9d53affc47f0cb10fdadeee3716d43fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_rte_eb_definition display_value="x_2048400_churn_1_support_ticket Data Ma_etl_ihub">83f2a3fc47f0cb10fdadeee3716d435d</sys_rte_eb_definition>
+        <sys_rte_eb_entity_mapping display_value="IHUB_SOURCE_TEMP_MAPPING">d553affc47f0cb10fdadeee3716d43c9</sys_rte_eb_entity_mapping>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_rte_eb_field_mapping_9d53affc47f0cb10fdadeee3716d43fb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 20:28:03</sys_updated_on>
+        <target_sys_rte_eb_field display_value="Customer_sn_ihub_target_customer">4153affc47f0cb10fdadeee3716d4347</target_sys_rte_eb_field>
+    </sys_rte_eb_field_mapping>
+</record_update>

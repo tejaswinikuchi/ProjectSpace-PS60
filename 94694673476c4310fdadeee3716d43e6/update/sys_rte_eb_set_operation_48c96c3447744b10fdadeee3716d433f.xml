@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rte_eb_set_operation">
+    <sys_rte_eb_set_operation action="INSERT_OR_UPDATE">
+        <conditional_fields/>
+        <conditional_script><![CDATA[/* Example Script
+(function(batch, output) {
+    for (var i = 0; i < batch.length; i++) {
+        
+        // step1: access the input variables
+        var a = batch[i].input;
+
+        // step2: your script code goes here
+        // based on the input variables assign variable 'b' to true or false.
+        var b = true; // or false;
+
+        // step3: set the output for each element
+        output[i] = b;
+    }
+})(batch, output);
+*/
+(function(batch, output) {
+    // add your code here
+    
+})(batch, output);]]></conditional_script>
+        <is_conditional>false</is_conditional>
+        <name>SET_sn_ihub_target_risk_category</name>
+        <operation_group/>
+        <order>0</order>
+        <overwrite_existing_value>false</overwrite_existing_value>
+        <set_value/>
+        <source_sys_rte_eb_field/>
+        <source_sys_rte_eb_fields/>
+        <sys_class_name>sys_rte_eb_set_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 06:57:14</sys_created_on>
+        <sys_id>48c96c3447744b10fdadeee3716d433f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SET_sn_ihub_target_risk_category</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy/>
+        <sys_rte_eb_definition display_value="x_2048400_churn_1_customer_profile_table_etl_ihub">45a9ec7047744b10fdadeee3716d4353</sys_rte_eb_definition>
+        <sys_rte_eb_entity display_value="IHUB_TARGET_TEMP_x_2048400_churn_1_customer_profile_table">b3b9683447744b10fdadeee3716d439b</sys_rte_eb_entity>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_rte_eb_set_operation_48c96c3447744b10fdadeee3716d433f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 06:57:14</sys_updated_on>
+        <target_sys_rte_eb_field display_value="sn_ihub_target_risk_category">44c9e83447744b10fdadeee3716d433f</target_sys_rte_eb_field>
+        <target_sys_rte_eb_fields/>
+        <type display_value="Set">c588011e730000102b6265a751ab9e4a</type>
+    </sys_rte_eb_set_operation>
+</record_update>

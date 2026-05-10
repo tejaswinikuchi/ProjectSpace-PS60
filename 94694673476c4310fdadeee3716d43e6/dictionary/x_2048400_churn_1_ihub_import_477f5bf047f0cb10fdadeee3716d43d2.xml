@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c9bf1b3447f0cb10fdadeee3716d43fb" extends="sys_import_set_row" label="x_2048400_churn_1_support_ticket Data Ma" max_length="40" name="x_2048400_churn_1_ihub_import_477f5bf047f0cb10fdadeee3716d43d2" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Ticket Status" label="Ticket Status" max_length="40" name="u_ticket_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Created Date" label="Created Date" max_length="40" name="u_created_date" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Ticket Description" label="Ticket Description" max_length="40" name="u_ticket_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Assigned To" label="Assigned To" max_length="40" name="u_assigned_to" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Sentiment" label="Sentiment" max_length="40" name="u_sentiment" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Priority" label="Priority" max_length="40" name="u_priority" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer" label="Customer" max_length="40" name="u_customer" type="string"/>
+    </element>
+</database>

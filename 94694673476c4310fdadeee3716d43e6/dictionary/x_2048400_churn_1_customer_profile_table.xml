@@ -24,8 +24,11 @@
         <element attributes="edge_encryption_enabled=true" choice="1" label="Subscription Tier" max_length="40" name="subscription_tier" type="string">
             <choice>
                 <element inactive_on_update="false" label="Enterprise" sequence="2" value="enterprise"/>
+                <element inactive_on_update="false" label="Standard" sequence="0" value="Standard"/>
+                <element inactive_on_update="false" label="Basic" sequence="0" value="Basic"/>
                 <element inactive_on_update="false" label="Professional" sequence="1" value="professional"/>
                 <element inactive_on_update="false" label="Starter" sequence="0" value="starter"/>
+                <element inactive_on_update="false" label="Premium" sequence="0" value="Premium"/>
             </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" label="Company Name" max_length="200" name="u_company_name" type="string"/>

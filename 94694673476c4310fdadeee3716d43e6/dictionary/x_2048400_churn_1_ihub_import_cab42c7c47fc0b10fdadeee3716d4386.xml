@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="01d468b847304b10fdadeee3716d432e" extends="sys_import_set_row" label="x_2048400_churn_1_customer_profile_data " max_length="40" name="x_2048400_churn_1_ihub_import_cab42c7c47fc0b10fdadeee3716d4386" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=subscription_tier" label="subscription_tier" max_length="40" name="u_subscription_tier" type="string"/>
+        <element attributes="import_attribute_name=nps_score" label="nps_score" max_length="40" name="u_nps_score" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=last_record" label="last_record" max_length="40" name="u_last_record" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=ai_risk_explanation" label="ai_risk_explanation" max_length="61" name="u_ai_risk_explanation" type="string"/>
+        <element attributes="import_attribute_name=arr" label="arr" max_length="15" name="u_arr" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=last_login" label="last_login" max_length="40" name="u_last_login" type="string"/>
+        <element attributes="import_attribute_name=open_tickets" label="open_tickets" max_length="40" name="u_open_tickets" type="integer"/>
+        <element attributes="import_attribute_name=churn_risk_score" label="churn_risk_score" max_length="40" name="u_churn_risk_score" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=customer_id" label="customer_id" max_length="40" name="u_customer_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=risk_category" label="risk_category" max_length="40" name="u_risk_category" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=company_name" label="company_name" max_length="40" name="u_company_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=contract_end" label="contract_end" max_length="40" name="u_contract_end" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=account_manager" label="account_manager" max_length="40" name="u_account_manager" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=contract_start" label="contract_start" max_length="40" name="u_contract_start" type="string"/>
+    </element>
+</database>

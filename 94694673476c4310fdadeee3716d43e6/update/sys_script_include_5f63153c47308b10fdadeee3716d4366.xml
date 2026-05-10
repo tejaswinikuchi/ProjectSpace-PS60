@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_2048400_churn_1.GeminiAIRecommendation</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>GeminiAIRecommendation</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var GeminiAIRecommendation = Class.create();
+
+GeminiAIRecommendation.prototype = {
+
+    initialize: function() {},
+
+    getRecommendation: function(customerSysId) {
+
+        // Get customer record
+       var customer = new GlideRecord('x_2048400_churn_1_customer_profile_table');
+
+        if (!customer.get(customerSysId)) {
+            return "Customer not found";
+        }
+
+        // Build AI prompt
+        var prompt =
+            "You are an AI customer retention expert.\n\n" +
+
+            "Analyze this customer and provide 3 retention recommendations.\n\n" +
+
+            "Company: " + customer.u_company_name + "\n" +
+            "Risk Score: " + customer.u_churn_risk_score + "\n" +
+            "Risk Category: " + customer.u_risk_category + "\n" +
+            "Open Tickets: " + customer.u_open_tickets + "\n" +
+            "NPS Score: " + customer.u_nps_score + "\n\n" +
+
+            "Provide short professional recommendations.";
+
+        // REST message
+        var rm = new sn_ws.RESTMessageV2();
+
+        rm.setEndpoint(
+            'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=' +
+            gs.getProperty('x_2048400_churn_1.ChurnPredictionAI')
+        );
+
+        rm.setHttpMethod('POST');
+
+        rm.setRequestHeader(
+            'Content-Type',
+            'application/json'
+        );
+
+        // Request body
+        var requestBody = {
+            contents: [
+                {
+                    parts: [
+                        {
+                            text: prompt
+                        }
+                    ]
+                }
+            ]
+        };
+
+        rm.setRequestBody(JSON.stringify(requestBody));
+
+        // Execute request
+        var response = rm.execute();
+
+        // Parse response
+        var responseBody = JSON.parse(response.getBody());
+
+// Debug full response
+// gs.info(JSON.stringify(responseBody));
+
+// Safe response handling
+if (
+    responseBody.candidates &&
+    responseBody.candidates.length > 0 &&
+    responseBody.candidates[0].content &&
+    responseBody.candidates[0].content.parts &&
+    responseBody.candidates[0].content.parts.length > 0
+) {
+
+    return responseBody.candidates[0].content.parts[0].text;
+}
+else {
+
+   return "1. Schedule customer success onboarding session.\n" +
+       "2. Offer renewal discount for retention.\n" +
+       "3. Escalate unresolved support tickets to senior support team.";
+}
+    },
+
+    type: 'GeminiAIRecommendation'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-09 10:01:15</sys_created_on>
+        <sys_id>5f63153c47308b10fdadeee3716d4366</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>GeminiAIRecommendation</sys_name>
+        <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
+        <sys_update_name>sys_script_include_5f63153c47308b10fdadeee3716d4366</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-09 16:11:09</sys_updated_on>
+    </sys_script_include>
+</record_update>
