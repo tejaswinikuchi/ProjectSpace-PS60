@@ -160,14 +160,14 @@
         "b2034ed0b33f492ea18b7d9513c869cd": {
           "id": "b2034ed0b33f492ea18b7d9513c869cd",
           "stepType": "TextPrompt",
-          "name": "customer_company_name",
+          "name": "company_name",
           "prompt": {
             "value": [
               {
                 "type": "paragraph",
                 "children": [
                   {
-                    "text": "Enter customer company name"
+                    "text": "Enter company name"
                   }
                 ]
               }
@@ -221,7 +221,7 @@
           "stepType": "ScriptOutput",
           "name": "Lookup_Customer",
           "output_type": "single_part",
-          "script": "(function execute() {\n\n    var gr = new GlideRecord('u_churn_customer');\n\n    gr.addQuery(\n        'u_company_name',\n        vaVars.customer_company_name\n    );\n\n    gr.query();\n\n    if (gr.next()) {\n\n        vaVars.customer_found = \"true\";\n\n        vaVars.company =\n        gr.u_company_name.toString();\n\n        vaVars.risk_score =\n        gr.u_churn_risk_score.toString();\n\n        vaVars.risk_category =\n        gr.u_risk_category.toString();\n\n        vaVars.open_tickets =\n        gr.u_open_tickets.toString();\n\n        vaVars.nps =\n        gr.u_nps_score.toString();\n\n        vaVars.ai_explanation =\n        gr.u_ai_risk_explanation.toString();\n\n        return \"Customer found\";\n\n    }\n\n    else {\n\n        vaVars.customer_found = \"false\";\n\n        return \"Customer not found\";\n    }\n\n})();",
+          "script": "(function execute() {\n\n    var gr = new GlideRecord('x_2048400_churn_1_customer_profile_table');\n\n    gr.addQuery(\n        'company_name',\n        vaVars.customer_company_name\n    );\n\n    gr.query();\n\n    if (gr.next()) {\n\n        vaVars.customer_found = \"true\";\n\n        vaVars.company =\n        gr.company_name.toString();\n\n        vaVars.risk_score =\n        gr.churn_risk_score.toString();\n\n        vaVars.risk_category =\n        gr.risk_category.toString();\n\n        vaVars.open_tickets =\n        gr.open_tickets.toString();\n\n        vaVars.nps =\n        gr.nps_score.toString();\n\n        vaVars.ai_explanation =\n        gr.ai_risk_explanation.toString();\n\n        return \"Customer found\";\n\n    }\n\n    else {\n\n        vaVars.customer_found = \"false\";\n\n        return \"Customer not found\";\n    }\n\n})();",
           "applicability": {
             "value": "",
             "mode": "query"
@@ -1223,8 +1223,8 @@
     },
     "0a3015aa209642f39c15d3307032cdbf": {
       "id": "0a3015aa209642f39c15d3307032cdbf",
-      "name": "customer_company_name",
-      "label": "Customer_company_name",
+      "name": "company_name",
+      "label": "Company_name",
       "varType": "string",
       "secure": false,
       "category": "vaInputs",
@@ -1362,14 +1362,14 @@
         <sys_created_on>2026-05-10 05:09:08</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>569add8947700310fdadeee3716d43ed</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>customer_churn_risk_query</sys_name>
         <sys_package display_value="Churn Prediction System" source="x_2048400_churn_1">94694673476c4310fdadeee3716d43e6</sys_package>
         <sys_policy/>
         <sys_scope display_value="Churn Prediction System">94694673476c4310fdadeee3716d43e6</sys_scope>
         <sys_update_name>sys_cb_topic_569add8947700310fdadeee3716d43ed</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-05-10 11:16:41</sys_updated_on>
+        <sys_updated_on>2026-05-10 17:39:19</sys_updated_on>
         <title>customer_churn_risk_query</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
