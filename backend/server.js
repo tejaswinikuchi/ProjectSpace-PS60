@@ -94,13 +94,9 @@ app.post("/login", (req, res) => {
    CUSTOMER APIs
 ========================= */
 
-app.get(
-  "/customers",
-  authMiddleware,
-  (req, res) => {
-    res.json(customers);
-  }
-);
+app.get("/customers", (req, res) => {
+  res.json(customers);
+});
 
 /* =========================
    AI RECOMMENDATION APIs
@@ -119,35 +115,27 @@ app.post("/ai-recommendation", (req, res) => {
    INTERVENTION WORKFLOW APIs
 ========================= */
 
-app.get(
-  "/interventions",
-  authMiddleware,
-  (req, res) => {
-    res.json(interventions);
-  }
-);
+app.get("/interventions", (req, res) => {
+  res.json(interventions);
+});
 
-app.post(
-  "/interventions",
-  authMiddleware,
-  (req, res) => {
-    const intervention = {
-      id: interventions.length + 1,
-      ...req.body,
-    };
+app.post("/interventions", (req, res) => {
+  const intervention = {
+    id: interventions.length + 1,
+    ...req.body,
+  };
 
-    interventions.push(intervention);
+  interventions.push(intervention);
 
-    saveInterventions(interventions);
+  saveInterventions(interventions);
 
-    res.json({
-      message:
-        "Intervention saved successfully",
+  res.json({
+    message:
+      "Intervention saved successfully",
 
-      intervention,
-    });
-  }
-);
+    intervention,
+  });
+});
 
 /* =========================
    WEBHOOK INGESTION LAYER
