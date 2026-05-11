@@ -1,22 +1,27 @@
 const express = require("express");
 const cors = require("cors");
-const fs = require("fs");
 
 const { calculateRiskScore } = require("./riskEngine");
 const { generateRecommendation } = require("./aiEngine");
+
+const {
+  authMiddleware,
+} = require("./middleware/authMiddleware");
+
+const {
+  loadCustomers,
+  loadInterventions,
+  saveInterventions,
+} = require("./database/databaseService");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-const rawCustomers = JSON.parse(
-  fs.readFileSync("./data/customers.json")
-);
+const rawCustomers = loadCustomers();
 
-let interventions = JSON.parse(
-  fs.readFileSync("./data/interventions.json")
-);
+let interventions = loadInterventions();
 
 const customers = rawCustomers.map((customer) => {
   const risk = calculateRiskScore(
@@ -37,6 +42,10 @@ const customers = rawCustomers.map((customer) => {
     nps: customer.nps,
   };
 });
+
+/* =========================
+   AUTHENTICATION APIs
+========================= */
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -81,71 +90,113 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.get("/customers", (req, res) => {
-  res.json(customers);
-});
+/* =========================
+   CUSTOMER APIs
+========================= */
+
+app.get(
+  "/customers",
+  authMiddleware,
+  (req, res) => {
+    res.json(customers);
+  }
+);
+
+/* =========================
+   AI RECOMMENDATION APIs
+========================= */
 
 app.post("/ai-recommendation", (req, res) => {
   const customer = req.body;
 
-  const result = generateRecommendation(customer);
+  const result =
+    generateRecommendation(customer);
 
   res.json(result);
 });
 
-app.get("/interventions", (req, res) => {
-  res.json(interventions);
-});
+/* =========================
+   INTERVENTION WORKFLOW APIs
+========================= */
 
-app.post("/interventions", (req, res) => {
-  const intervention = {
-    id: interventions.length + 1,
-    ...req.body,
-  };
+app.get(
+  "/interventions",
+  authMiddleware,
+  (req, res) => {
+    res.json(interventions);
+  }
+);
 
-  interventions.push(intervention);
+app.post(
+  "/interventions",
+  authMiddleware,
+  (req, res) => {
+    const intervention = {
+      id: interventions.length + 1,
+      ...req.body,
+    };
 
-  fs.writeFileSync(
-    "./data/interventions.json",
-    JSON.stringify(interventions, null, 2)
-  );
+    interventions.push(intervention);
 
-  res.json({
-    message: "Intervention saved successfully",
-    intervention,
-  });
-});
+    saveInterventions(interventions);
+
+    res.json({
+      message:
+        "Intervention saved successfully",
+
+      intervention,
+    });
+  }
+);
 
 /* =========================
    WEBHOOK INGESTION LAYER
 ========================= */
 
-app.post("/webhook/crm-sync", (req, res) => {
-  console.log("CRM webhook received");
+app.post(
+  "/webhook/crm-sync",
+  (req, res) => {
+    console.log("CRM webhook received");
 
-  res.json({
-    status: "CRM webhook processed",
-    timestamp: new Date(),
-  });
-});
+    res.json({
+      status: "CRM webhook processed",
 
-app.post("/webhook/support-sync", (req, res) => {
-  console.log("Support webhook received");
+      timestamp: new Date(),
+    });
+  }
+);
 
-  res.json({
-    status: "Support webhook processed",
-    timestamp: new Date(),
-  });
-});
+app.post(
+  "/webhook/support-sync",
+  (req, res) => {
+    console.log(
+      "Support webhook received"
+    );
 
-app.post("/webhook/billing-sync", (req, res) => {
-  console.log("Billing webhook received");
+    res.json({
+      status:
+        "Support webhook processed",
 
-  res.json({
-    status: "Billing webhook processed",
-    timestamp: new Date(),
-  });
-});
+      timestamp: new Date(),
+    });
+  }
+);
+
+app.post(
+  "/webhook/billing-sync",
+  (req, res) => {
+    console.log(
+      "Billing webhook received"
+    );
+
+    res.json({
+      status:
+        "Billing webhook processed",
+
+      timestamp: new Date(),
+    });
+  }
+);
 
 /* =========================
    HEALTH MONITORING
@@ -153,7 +204,8 @@ app.post("/webhook/billing-sync", (req, res) => {
 
 app.get("/health", (req, res) => {
   res.json({
-    status: "Backend running successfully",
+    status:
+      "Backend running successfully",
 
     apis: [
       "/login",
@@ -167,7 +219,8 @@ app.get("/health", (req, res) => {
       "/webhook/billing-sync",
     ],
 
-    persistence: "JSON database connected",
+    persistence:
+      "JSON database connected",
 
     architecture:
       "Full-stack REST architecture active",
@@ -183,6 +236,12 @@ app.get("/health", (req, res) => {
   });
 });
 
+/* =========================
+   SERVER STARTUP
+========================= */
+
 app.listen(5000, () => {
-  console.log("Backend server running on port 5000");
+  console.log(
+    "Backend server running on port 5000"
+  );
 });
