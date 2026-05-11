@@ -1,88 +1,107 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
-import { ShieldCheck, Sparkles, BarChart3, Workflow } from "lucide-react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 
+import { loginUser } from "@/lib/authApi";
+
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Sign in — Retain.AI" }] }),
   component: LoginPage,
 });
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+
+  async function handleLogin(e: React.FormEvent) {
+    e.preventDefault();
+
+    try {
+      const result = await loginUser(
+        username,
+        password
+      );
+
+      if (result.success) {
+        localStorage.setItem("role", result.role);
+
+        navigate({
+          to: "/dashboard",
+        });
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setError("Backend connection failed");
+    }
+  }
+
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
-      <div className="relative hidden overflow-hidden border-r border-border bg-sidebar p-10 lg:flex lg:flex-col lg:justify-between">
-        <div className="hero-bg absolute inset-0 -z-10 opacity-80" />
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15 text-primary"><ShieldCheck className="h-4 w-4" /></div>
-          <span className="font-semibold">Retain.AI</span>
-        </div>
-        <div className="space-y-6">
-          <h2 className="text-3xl font-semibold tracking-tight">Stop churn before it starts.</h2>
-          <p className="max-w-md text-sm text-muted-foreground">
-            A unified workspace for predictive risk scoring, generative recommendations, and
-            ServiceNow-powered retention workflows.
-          </p>
-          <div className="grid gap-3 max-w-md">
-            {[
-              { i: Sparkles, t: "AI-driven retention recommendations" },
-              { i: BarChart3, t: "Live risk and revenue analytics" },
-              { i: Workflow, t: "Automated playbooks in Flow Designer" },
-            ].map((f) => (
-              <div key={f.t} className="flex items-center gap-3 rounded-lg border border-border bg-card/50 p-3">
-                <f.i className="h-4 w-4 text-primary" /> <span className="text-sm">{f.t}</span>
-              </div>
-            ))}
+    <div className="flex min-h-screen items-center justify-center bg-black text-white">
+      <div className="w-full max-w-md rounded-xl border border-zinc-800 bg-zinc-900 p-8">
+        <h1 className="mb-6 text-3xl font-bold">
+          Retain.AI Login
+        </h1>
+
+        <form
+          onSubmit={handleLogin}
+          className="space-y-4"
+        >
+          <div>
+            <label className="mb-1 block text-sm">
+              Username
+            </label>
+
+            <input
+              type="text"
+              value={username}
+              onChange={(e) =>
+                setUsername(e.target.value)
+              }
+              className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2"
+            />
           </div>
-        </div>
-        <p className="text-xs text-muted-foreground">© 2026 Retain.AI · Student capstone</p>
-      </div>
 
-      <div className="flex items-center justify-center p-6">
-        <Card className="glass w-full max-w-md p-8">
-          <Badge variant="outline" className="border-primary/30 bg-primary/10 text-primary">Welcome back</Badge>
-          <h1 className="mt-3 text-2xl font-semibold tracking-tight">Sign in to your workspace</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Use your work email to continue.</p>
+          <div>
+            <label className="mb-1 block text-sm">
+              Password
+            </label>
 
-          <form
-            className="mt-6 space-y-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setLoading(true);
-              setTimeout(() => navigate({ to: "/dashboard" }), 600);
-            }}
+            <input
+              type="password"
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+              className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-2"
+            />
+          </div>
+
+          {error && (
+            <p className="text-sm text-red-500">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="w-full rounded bg-emerald-500 px-4 py-2 font-medium text-black"
           >
-            <div className="space-y-1.5">
-              <Label htmlFor="email">Work email</Label>
-              <Input id="email" type="email" defaultValue="priya@retain.ai" className="bg-secondary/40" />
-            </div>
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                <a href="#" className="text-xs text-muted-foreground hover:text-foreground">Forgot?</a>
-              </div>
-              <Input id="password" type="password" defaultValue="••••••••" className="bg-secondary/40" />
-            </div>
-            <div className="flex items-center gap-2">
-              <Checkbox id="remember" defaultChecked /> <Label htmlFor="remember" className="text-sm font-normal">Remember me for 30 days</Label>
-            </div>
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Signing in…" : "Sign in"}
-            </Button>
-            <Button type="button" variant="outline" className="w-full">Continue with SSO</Button>
-          </form>
+            Login
+          </button>
+        </form>
 
-          <p className="mt-6 text-center text-xs text-muted-foreground">
-            New here? <Link to="/" className="text-primary hover:underline">Back to homepage</Link>
-          </p>
-        </Card>
+        <div className="mt-6 text-sm text-zinc-400">
+          Demo Accounts:
+          <br />
+          admin / admin123
+          <br />
+          manager / manager123
+          <br />
+          analyst / analyst123
+        </div>
       </div>
     </div>
   );

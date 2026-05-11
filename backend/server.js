@@ -38,6 +38,49 @@ const customers = rawCustomers.map((customer) => {
   };
 });
 
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  const users = [
+    {
+      username: "admin",
+      password: "admin123",
+      role: "Admin",
+    },
+
+    {
+      username: "manager",
+      password: "manager123",
+      role: "Manager",
+    },
+
+    {
+      username: "analyst",
+      password: "analyst123",
+      role: "Analyst",
+    },
+  ];
+
+  const user = users.find(
+    (u) =>
+      u.username === username &&
+      u.password === password
+  );
+
+  if (user) {
+    return res.json({
+      success: true,
+      message: "Login successful",
+      role: user.role,
+    });
+  }
+
+  res.status(401).json({
+    success: false,
+    message: "Invalid credentials",
+  });
+});
+
 app.get("/customers", (req, res) => {
   res.json(customers);
 });
@@ -73,17 +116,70 @@ app.post("/interventions", (req, res) => {
   });
 });
 
+/* =========================
+   WEBHOOK INGESTION LAYER
+========================= */
+
+app.post("/webhook/crm-sync", (req, res) => {
+  console.log("CRM webhook received");
+
+  res.json({
+    status: "CRM webhook processed",
+    timestamp: new Date(),
+  });
+});
+
+app.post("/webhook/support-sync", (req, res) => {
+  console.log("Support webhook received");
+
+  res.json({
+    status: "Support webhook processed",
+    timestamp: new Date(),
+  });
+});
+
+app.post("/webhook/billing-sync", (req, res) => {
+  console.log("Billing webhook received");
+
+  res.json({
+    status: "Billing webhook processed",
+    timestamp: new Date(),
+  });
+});
+
+/* =========================
+   HEALTH MONITORING
+========================= */
+
 app.get("/health", (req, res) => {
   res.json({
     status: "Backend running successfully",
+
     apis: [
+      "/login",
       "/customers",
       "/health",
       "/ai-recommendation",
       "/interventions",
+
+      "/webhook/crm-sync",
+      "/webhook/support-sync",
+      "/webhook/billing-sync",
     ],
+
     persistence: "JSON database connected",
-    architecture: "Full-stack REST architecture active",
+
+    architecture:
+      "Full-stack REST architecture active",
+
+    integrations: [
+      "Salesforce CRM",
+      "Zendesk Support",
+      "Stripe Billing",
+    ],
+
+    workflowAutomation:
+      "AI-driven intervention orchestration active",
   });
 });
 

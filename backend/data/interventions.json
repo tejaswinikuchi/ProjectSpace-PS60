@@ -6,12 +6,25 @@
     "manager": "A. Mehra",
     "status": "Completed"
   },
-
   {
     "id": 2,
     "customer": "Helios Banking",
     "action": "Offer premium support",
     "manager": "S. Kapoor",
     "status": "In Progress"
+  },
+  {
+    "id": 3,
+    "customer": "Acme Retail",
+    "action": "Offer renewal discount",
+    "manager": "Priya Sharma",
+    "status": "Pending"
+  },
+  {
+    "id": 4,
+    "customer": "Acme Retail",
+    "action": "Schedule executive retention call immediately.",
+    "manager": "AI Automation Engine",
+    "status": "AI Generated"
   }
 ]
